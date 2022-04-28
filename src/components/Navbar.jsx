@@ -1,6 +1,6 @@
 import Logo from '../assets/magnolia.svg';
 import MenuIcon from '../assets/icons/menu.svg';
-import ShoppingCartIcon from '../assets/icons/shopping-cart.svg';
+import CartWidget from './CartWidget';
 
 function Navbar() {
   return (
@@ -25,14 +25,11 @@ function Navbar() {
               Contacto
             </a>
           </div>
-          <div className="flex gap-2">
-            <img src={ShoppingCartIcon} alt="" />
-            <span>0</span>
-          </div>
+          <CartWidget />
         </nav>
       </header>
 
-      <div className="fixed w-1/2 bg-blue-100 p-6 sm:hidden">
+      <div className="fixed hidden w-1/2 bg-blue-100 p-6">
         <div className="flex flex-col gap-4">
           <a href="/" className="hover:underline">
             Tienda
