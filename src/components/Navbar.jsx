@@ -29,7 +29,7 @@ function Navbar() {
         </nav>
       </header>
 
-      <div className="fixed hidden w-1/2 bg-blue-100 p-6">
+      <div className="absolute w-1/2 bg-blue-100 p-6 sm:hidden">
         <div className="flex flex-col gap-4">
           <a href="/" className="hover:underline">
             Tienda
