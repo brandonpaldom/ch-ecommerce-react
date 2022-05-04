@@ -30,7 +30,13 @@ function ItemCount({ stock, initial }) {
           <img src={PlusIcon} alt="" width={24} />
         </button>
       </div>
-      <button onClick={onAdd} className="w-full rounded-lg bg-yellow-500 p-1">
+      <button
+        onClick={onAdd}
+        className={`${
+          stock === 0 && 'opacity-20'
+        } w-full rounded-lg bg-yellow-500 p-1 text-white`}
+        disabled={stock === 0}
+      >
         Agregar al carrito
       </button>
       {stock === 0 && <p className="text-red-600">Producto agotado</p>}
