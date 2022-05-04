@@ -1,5 +1,5 @@
 import Logo from '../assets/magnolia.svg';
-import MenuIcon from '../assets/icons/menu.svg';
+import MenuIcon from '../assets/icons/menu-burger.svg';
 import CartWidget from './CartWidget';
 
 function Navbar() {
@@ -8,7 +8,7 @@ function Navbar() {
       <header className="bg-white">
         <nav className="flex h-16 items-center justify-between px-6">
           <div className="block sm:hidden">
-            <img src={MenuIcon} alt="" />
+            <img src={MenuIcon} alt="" width={24} />
           </div>
           <img src={Logo} alt="" />
           <div className="hidden items-center gap-4 sm:flex">
@@ -29,7 +29,7 @@ function Navbar() {
         </nav>
       </header>
 
-      <div className="absolute w-1/2 bg-blue-100 p-6 sm:hidden">
+      <div className="absolute w-1/2 bg-blue-100 p-6 hidden">
         <div className="flex flex-col gap-4">
           <a href="/" className="hover:underline">
             Tienda
