@@ -23,13 +23,16 @@ function Navbar() {
               Tienda
             </a>
             <a href="/" className="hover:underline">
-              Catálogo
+              Mujer
             </a>
             <a href="/" className="hover:underline">
-              Acerca de
+              Hombre
             </a>
             <a href="/" className="hover:underline">
-              Contacto
+              Hogar
+            </a>
+            <a href="/" className="hover:underline">
+              Belleza
             </a>
           </div>
           <CartWidget />
@@ -37,19 +40,22 @@ function Navbar() {
       </header>
 
       {show && (
-        <div className="absolute w-1/2 bg-blue-100 p-6 sm:hidden">
+        <div className="absolute z-10 w-1/2 bg-blue-100 p-6 sm:hidden">
           <div className="flex flex-col gap-4">
             <a href="/" className="hover:underline">
               Tienda
             </a>
             <a href="/" className="hover:underline">
-              Catálogo
+              Mujer
             </a>
             <a href="/" className="hover:underline">
-              Acerca de
+              Hombre
             </a>
             <a href="/" className="hover:underline">
-              Contacto
+              Hogar
+            </a>
+            <a href="/" className="hover:underline">
+              Belleza
             </a>
           </div>
         </div>
