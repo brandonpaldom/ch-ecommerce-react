@@ -1,4 +1,4 @@
-@import url('./general-sans.css');
+@import url('https://use.typekit.net/xmq4zdz.css');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,6 @@
 
 @layer base {
   body {
-    @apply bg-neutral-50;
+    @apply bg-neutral-50 antialiased;
   }
 }
