@@ -23,7 +23,7 @@ function ItemListContainer() {
             id: 2,
             title: 'Camiseta Básica Slim Fit',
             description:
-              'Camiseta confeccionada en algodón con elasticidad. Cuello redondo y manga corta',
+              'Camiseta confeccionada en algodón con elasticidad. Cuello redondo y manga corta.',
             price: 299,
             pictureUrl:
               'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/camiseta-basica-slim-fit_fgr1ud.jpg',
