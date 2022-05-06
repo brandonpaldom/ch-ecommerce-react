@@ -9,7 +9,9 @@ function Item({ id, title, description, price, pictureUrl, newArticle }) {
           </div>
         )}
       </div>
-      <div className="text-xs sm:text-sm truncate text-neutral-500">{title}</div>
+      <div className="truncate text-xs text-neutral-500 sm:text-sm">
+        {title}
+      </div>
       <div>${price}</div>
     </div>
   );
