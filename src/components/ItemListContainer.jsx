@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 
 function ItemListContainer() {
-  const [response, setResponse] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,102 +11,102 @@ function ItemListContainer() {
         resolve([
           {
             id: 1,
-            title: 'CAMISA ESTRUCTURA EASY CARE',
+            title: 'Camisa Estructura Easy Care',
             description:
               'Camisa slim fit de cuello italiano y manga larga acabada en puño con botón. Cierre frontal de botonadura.',
             price: 699,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651790328/ch-ecommerce/camisa-estructura-easy-care_eunjgp.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/camisa-estructura-easy-care_gmpysm.jpg',
             newArticle: true,
           },
           {
             id: 2,
-            title: 'CAMISETA BÁSICA SLIM FIT',
+            title: 'Camiseta Básica Slim Fit',
             description:
               'Camiseta confeccionada en algodón con elasticidad. Cuello redondo y manga corta',
             price: 299,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651790494/ch-ecommerce/camiseta-basica-slim-fit_x6jm5v.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/camiseta-basica-slim-fit_fgr1ud.jpg',
             newArticle: true,
           },
           {
             id: 3,
-            title: 'POLO ESTRUCTURA PIQUÉ',
+            title: 'Polo Estructura Piqué',
             description:
               'Polo confeccionado en tejido de algodón con estructura piqué. Cuello tira con cierre frontal con botones. Manga corta acabada en rib. Bajo con aberturas laterales.',
             price: 549,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651790808/ch-ecommerce/polo-estructura-pique_re9dye.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/polo-estructura-pique_giefxd.jpg',
             newArticle: true,
           },
           {
             id: 4,
-            title: 'SUDADERA BÁSICA CAPUCHA',
+            title: 'Sudadera Básica Capucha',
             description:
               'Sudadera amplia de cuello con capucha ajustable y manga larga. Bolsillos frontal tipo canguro. Acabados en rib.',
             price: 749,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651790812/ch-ecommerce/sudadera-basica-capucha_ppdaai.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/sudadera-basica-capucha_m5qzwp.jpg',
             newArticle: false,
           },
           {
             id: 5,
-            title: 'JEANS BÁSICO SLIM FIT',
+            title: 'Jeans Básico Slim Fit',
             description:
               'Jeans slim fit con cinco bolsillos. Efecto lavado. Cierre frontal con cremallera y botón metálico.',
             price: 749,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651790986/ch-ecommerce/jeans-basico-slim-fit_sidhw3.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846649/ch-ecommerce/jeans-basico-slim-fit_crbdzh.jpg',
             newArticle: false,
           },
           {
             id: 6,
-            title: 'BLAZER CONJUNTO SLIM',
+            title: 'Blazer Conjunto Slim',
             description:
               'Blazer de cuello con solapas de muesca. Manga larga acabada en puño con detalle de botones. Bolsillo de vivo en pecho y de solapa en cadera. Detalle bolsillo interior. Cierre frontal con botones.',
             price: 2299,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651791256/ch-ecommerce/blazer-conjunto-slim_g947c5.jpg ',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846649/ch-ecommerce/blazer-conjunto-slim_xqwnwt.jpg',
             newArticle: false,
           },
           {
             id: 7,
-            title: 'SUDADERA POLO',
+            title: 'Sudadera Polo',
             description:
               'Sudadera con cuello polo y escote pico con manga larga.',
             price: 549,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651791816/ch-ecommerce/sudadera-polo_crd0ul.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846649/ch-ecommerce/sudadera-polo_dhlr9e.jpg',
             newArticle: false,
           },
           {
             id: 8,
-            title: 'JEANS WIDE LEG ROTOS',
+            title: 'Jeans Wide Leg Rotos',
             description:
               'Jeans de tejido rígido con tiro alto y cinco bolsillos. Pierna ancha extra larga con rotos. Cierre con cremallera y botón metálico.',
             price: 899,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651791820/ch-ecommerce/jeans-wide-leg-rotos_jnevg0.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/jeans-wide-leg-rotos_vcz2ga.jpg',
             newArticle: false,
           },
           {
             id: 9,
-            title: 'SOBRECAMISA FLUIDA',
+            title: 'Sobrecamisa Fluida',
             description:
               'Sobrecamisa de cuello solapa y manga larga acabada en vuelta con trabilla y botón. Bolsillos delanteros de plastrón con solapa. Cintura ajustable. Cierre frontal con botones.',
             price: 1199,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651792005/ch-ecommerce/sobrecamisa-fuida_pplnmd.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846649/ch-ecommerce/sobrecamisa-fuida_bt4ruy.jpg',
             newArticle: false,
           },
           {
             id: 10,
-            title: 'PANTALÓN ANCHO MASCULINO',
+            title: 'Pantalón Ancho Masculino',
             description:
               'Pantalón de tiro alto con pinzas. Bolsillos delanteros y falso bolsillo de vivo en espalda. Pernera ancha. Cierre frontal con cremallera y botón.',
             price: 899,
             pictureUrl:
-              'https://res.cloudinary.com/dlomynswh/image/upload/v1651792101/ch-ecommerce/pantalon-ancho-masculino_jekbhf.jpg',
+              'https://res.cloudinary.com/dlomynswh/image/upload/v1651846649/ch-ecommerce/pantalon-ancho-masculino_y39wky.jpg',
             newArticle: false,
           },
         ]);
@@ -114,14 +114,14 @@ function ItemListContainer() {
     });
 
     promise.then((response) => {
-      setResponse(response);
+      setProducts(response);
       setLoading(false);
     });
   }, []);
 
   return (
     <div className="p-6">
-      <ItemList items={response} loading={loading} />
+      <ItemList items={products} loading={loading} />
     </div>
   );
 }
