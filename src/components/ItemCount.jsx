@@ -10,8 +10,8 @@ function ItemCount({ stock, initial }) {
   }
 
   return (
-    <div className="flex w-[240px] flex-col items-center gap-2">
-      <div className="flex w-full items-center justify-between rounded-lg border border-yellow-500 p-1">
+    <div className="flex w-full flex-col gap-4 md:w-[320px]">
+      <div className="flex w-full items-center justify-between border border-neutral-300 p-2">
         <button
           type="button"
           onClick={() => setCount(count - 1)}
@@ -34,12 +34,20 @@ function ItemCount({ stock, initial }) {
         onClick={onAdd}
         className={`${
           stock === 0 && 'opacity-20'
-        } w-full rounded-lg bg-yellow-500 p-1 text-white`}
+        } w-full border border-black p-2`}
         disabled={stock === 0}
       >
         Agregar al carrito
       </button>
-      {stock === 0 && <p className="text-red-600">Producto agotado</p>}
+      <button
+        onClick={onAdd}
+        className={`${
+          stock === 0 && 'opacity-20'
+        } w-full bg-black p-2 text-white`}
+        disabled={stock === 0}
+      >
+        Comprar ahora
+      </button>
     </div>
   );
 }

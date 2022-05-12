@@ -1,4 +1,4 @@
-function Loader() {
+function ItemLoader() {
   return (
     <div className="flex animate-pulse flex-col gap-2">
       <div className="aspect-[3/4] w-full rounded bg-neutral-200" />
@@ -8,4 +8,4 @@ function Loader() {
   );
 }
 
-export default Loader;
+export default ItemLoader;

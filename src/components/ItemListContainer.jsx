@@ -6,7 +6,7 @@ function ItemListContainer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const promise = new Promise((resolve, reject) => {
+    const getProducts = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve([
           {
@@ -113,7 +113,7 @@ function ItemListContainer() {
       }, 2000);
     });
 
-    promise.then((response) => {
+    getProducts.then((response) => {
       setProducts(response);
       setLoading(false);
     });
