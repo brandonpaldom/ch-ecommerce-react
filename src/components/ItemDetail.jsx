@@ -5,44 +5,48 @@ import InfoIcon from '../assets/icons/info.svg';
 import PhoneIcon from '../assets/icons/phone.svg';
 
 function ItemDetail({ item }) {
-  return item.map((product) => (
-    <div
-      key={product.id}
-      className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6"
-    >
+  const {
+    id,
+    title,
+    description,
+    price,
+    pictureUrl,
+    newArticle,
+    category,
+    stock,
+  } = item;
+
+  return (
+    <div key={id} className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2">
         <div className="relative">
-          <img src={product.pictureUrl} alt="" />
-          {product.newArticle && (
+          <img src={pictureUrl} alt="" />
+          {newArticle && (
             <div className="absolute top-6 left-6 bg-black/10 p-1 text-xs leading-none">
               Nuevo
             </div>
           )}
         </div>
         <div className="flex flex-col gap-4 bg-white p-6">
-          <h1 className="text-[1.5rem] leading-tight">{product.title}</h1>
+          <h1 className="text-[1.5rem] leading-tight">{title}</h1>
           <div>
-            <span className="text-[1.5rem] leading-tight">
-              ${product.price}
-            </span>
+            <span className="text-[1.5rem] leading-tight">${price}</span>
           </div>
-          <p className="text-neutral-500">{product.description}</p>
-          {product.stock <= 5 && product.stock >= 1 && (
+          <p className="text-neutral-500">{description}</p>
+          {stock <= 5 && stock >= 1 && (
             <p className="text-amber-600">
-              ¡Date prisa! Solo quedan {product.stock} piezas disponibles
+              ¡Date prisa! Solo quedan {stock} piezas disponibles
             </p>
           )}
-          {product.stock === 0 && (
-            <p className="text-red-600">Producto agotado</p>
-          )}
-          <ItemCount stock={product.stock} initial={1} />
+          {stock === 0 && <p className="text-red-600">itemo agotado</p>}
+          <ItemCount stock={stock} initial={1} />
         </div>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 bg-white p-6 sm:grid-cols-4">
         <div className="flex flex-col gap-2">
           <img src={TruckIcon} alt="" width={16} />
           <p className="text-[0.875rem] text-neutral-500">
-            Envíos de 2 a 5 días hábiles en nuestros productos. *
+            Envíos de 2 a 5 días hábiles en nuestros itemos. *
           </p>
         </div>
         <div className="flex flex-col gap-2">
@@ -79,7 +83,7 @@ function ItemDetail({ item }) {
         </p>
       </div>
     </div>
-  ));
+  );
 }
 
 export default ItemDetail;

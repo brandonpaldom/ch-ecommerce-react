@@ -2,6 +2,7 @@ import Logo from '../assets/magnolia.svg';
 import MenuIcon from '../assets/icons/menu-burger.svg';
 import CartWidget from './CartWidget';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [show, setShow] = useState(false);
@@ -17,23 +18,25 @@ function Navbar() {
           <div onClick={handleToggle} className="block sm:hidden">
             <img src={MenuIcon} alt="" width={24} />
           </div>
-          <img src={Logo} alt="" />
+          <Link to="/">
+            <img src={Logo} alt="" />
+          </Link>
           <div className="hidden items-center gap-4 sm:flex">
-            <a href="/" className="hover:underline">
+            <Link to="/" className="hover:underline">
               Tienda
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/woman" className="hover:underline">
               Mujer
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/man" className="hover:underline">
               Hombre
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/home" className="hover:underline">
               Hogar
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/beauty" className="hover:underline">
               Belleza
-            </a>
+            </Link>
           </div>
           <CartWidget />
         </nav>
@@ -42,21 +45,21 @@ function Navbar() {
       {show && (
         <div className="absolute z-10 w-1/2 bg-blue-100 p-6 sm:hidden">
           <div className="flex flex-col gap-4">
-            <a href="/" className="hover:underline">
+            <Link to="/" className="hover:underline">
               Tienda
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/woman" className="hover:underline">
               Mujer
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/man" className="hover:underline">
               Hombre
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/home" className="hover:underline">
               Hogar
-            </a>
-            <a href="/" className="hover:underline">
+            </Link>
+            <Link to="/category/beauty" className="hover:underline">
               Belleza
-            </a>
+            </Link>
           </div>
         </div>
       )}

@@ -1,6 +1,17 @@
-function Item({ id, title, description, price, pictureUrl, newArticle }) {
+import { Link } from 'react-router-dom';
+
+function Item({
+  id,
+  title,
+  description,
+  price,
+  pictureUrl,
+  newArticle,
+  category,
+  stock,
+}) {
   return (
-    <div className="cursor-pointer">
+    <Link to={`/item/${id}`}>
       <div className="relative">
         <img src={pictureUrl} alt="" className="mb-2 hover:opacity-90" />
         {newArticle && (
@@ -13,7 +24,7 @@ function Item({ id, title, description, price, pictureUrl, newArticle }) {
         {title}
       </div>
       <div>${price}</div>
-    </div>
+    </Link>
   );
 }
 

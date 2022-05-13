@@ -1,41 +1,30 @@
 import { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
 import ItemDetailLoader from './ItemDetailLoader';
+import { useParams } from 'react-router-dom';
+import { getProductById } from '../data';
 
 function ItemDetailContainer() {
-  const [product, setProduct] = useState([]);
+  const { itemId } = useParams();
+  const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getProduct = async () => {
-      const response = await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve([
-            {
-              id: 1,
-              title: 'Camisa Estructura Easy Care',
-              description:
-                'Camisa slim fit de cuello italiano y manga larga acabada en puño con botón. Cierre frontal de botonadura.',
-              price: 699,
-              pictureUrl:
-                'https://res.cloudinary.com/dlomynswh/image/upload/v1651846650/ch-ecommerce/camisa-estructura-easy-care_gmpysm.jpg',
-              newArticle: true,
-              stock: 5,
-            },
-          ]);
-        }, 2000);
-      });
+    const fetchProduct = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(getProductById(parseInt(itemId)));
+      }, 2000);
+    });
 
+    fetchProduct.then((response) => {
       setProduct(response);
       setLoading(false);
-    };
-
-    getProduct();
-  }, []);
+    });
+  }, [itemId]);
 
   if (loading) {
     return <ItemDetailLoader />;
-  } else {
+  } else if (product) {
     return <ItemDetail item={product} />;
   }
 }
