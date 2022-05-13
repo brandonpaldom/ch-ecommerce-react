@@ -1,15 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Item({
-  id,
-  title,
-  description,
-  price,
-  pictureUrl,
-  newArticle,
-  category,
-  stock,
-}) {
+function Item({ id, title, price, pictureUrl, newArticle }) {
   return (
     <Link to={`/item/${id}`}>
       <div className="relative">

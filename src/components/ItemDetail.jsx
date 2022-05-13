@@ -5,16 +5,7 @@ import InfoIcon from '../assets/icons/info.svg';
 import PhoneIcon from '../assets/icons/phone.svg';
 
 function ItemDetail({ item }) {
-  const {
-    id,
-    title,
-    description,
-    price,
-    pictureUrl,
-    newArticle,
-    category,
-    stock,
-  } = item;
+  const { id, title, description, price, pictureUrl, newArticle, stock } = item;
 
   return (
     <div key={id} className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
