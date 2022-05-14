@@ -6,7 +6,7 @@ function ItemCount({ stock, initial }) {
   const [count, setCount] = useState(initial);
 
   function onAdd() {
-    if (count <= stock) console.log(`Añadiendo ${count} al carrito`);
+    if (count <= stock) console.log(`Añadiste ${count} al carrito`);
   }
 
   return (
@@ -40,7 +40,6 @@ function ItemCount({ stock, initial }) {
         Agregar al carrito
       </button>
       <button
-        onClick={onAdd}
         className={`${
           stock === 0 && 'opacity-20'
         } w-full bg-black p-2 text-white`}

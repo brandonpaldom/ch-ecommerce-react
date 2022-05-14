@@ -42,7 +42,7 @@ function ItemDetail({ item }) {
         <div className="flex flex-col gap-2">
           <img src={TruckIcon} alt="" width={16} />
           <p className="text-[0.875rem] text-neutral-500">
-            Envíos de 2 a 5 días hábiles en nuestros itemos. *
+            Envíos de 2 a 5 días hábiles en nuestros productos. *
           </p>
         </div>
         <div className="flex flex-col gap-2">
