@@ -31,6 +31,11 @@ function ItemDetail({ item }) {
           )}
           {stock === 0 && <p className="text-red-600">itemo agotado</p>}
           <ItemCount stock={stock} initial={1} />
+          {stock > 5 && (
+            <p className="text-[0.875rem] text-neutral-500">
+              Disponibles: {stock} piezas
+            </p>
+          )}
         </div>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 bg-white p-6 sm:grid-cols-4">
