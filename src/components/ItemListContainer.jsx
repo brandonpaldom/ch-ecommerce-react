@@ -29,26 +29,8 @@ function ItemListContainer() {
     }
   }, [categoryId]);
 
-  function translateCategory(category) {
-    switch (category) {
-      case 'woman':
-        return 'Mujer';
-      case 'man':
-        return 'Hombre';
-      case 'beauty':
-        return 'Belleza';
-      default:
-    }
-  }
-
   return (
     <div className="p-6">
-      {/* Render only if catgory exist */}
-      {categoryId && (
-        <h1 className="mb-4 text-[1.5rem] leading-tight sm:text-center">
-          {translateCategory(categoryId)}
-        </h1>
-      )}
       <ItemList items={products} loading={loading} />
       {products.length === 0 && (
         <div className="grid h-[320px] w-full grid-cols-1 place-content-center">

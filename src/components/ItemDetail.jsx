@@ -7,18 +7,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ItemDetail({ item }) {
-  const {
-    id,
-    title,
-    description,
-    price,
-    newArticle,
-    category,
-    stock,
-    variations,
-  } = item;
+  const { id, title, description, price, newArticle, stock, variations } = item;
 
-  const [hideCount, setHideCount] = useState('show');
+  const [hideCount, setHideCount] = useState('hide');
   const [color, setColor] = useState(variations[0].img);
   const [viewColor, setViewColor] = useState(variations[0].color);
   const [isActive, setIsActive] = useState(0);
@@ -30,7 +21,7 @@ function ItemDetail({ item }) {
   }
 
   function onShowCount() {
-    setHideCount('hide');
+    setHideCount('show');
   }
 
   function selectColor(index) {
@@ -39,31 +30,8 @@ function ItemDetail({ item }) {
     setIsActive(index);
   }
 
-  function translateCategory(category) {
-    switch (category) {
-      case 'woman':
-        return 'Mujer';
-      case 'man':
-        return 'Hombre';
-      case 'beauty':
-        return 'Belleza';
-      default:
-    }
-  }
-
   return (
     <div key={id} className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
-      <div className="flex flex-wrap gap-1 text-[0.875rem] text-neutral-500">
-        <Link to="/" className="hover:underline">
-          Tienda
-        </Link>
-        <span>/</span>
-        <Link to={`/category/${category}`} className="hover:underline">
-          {translateCategory(category)}
-        </Link>
-        <span>/</span>
-        <span className="text-black">{title}</span>
-      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2">
         <div className="relative">
           <img src={color} alt="" />
@@ -92,14 +60,13 @@ function ItemDetail({ item }) {
             ))}
           </div>
           <p className="text-[0.875rem] text-neutral-500">{viewColor}</p>
-          {hideCount === 'show' ? (
-            <ItemCount
-              stock={stock}
-              initial={1}
-              onAdd={onAdd}
-              onShowCount={onShowCount}
-            />
-          ) : (
+          <ItemCount
+            stock={stock}
+            initial={1}
+            onAdd={onAdd}
+            onShowCount={onShowCount}
+          />
+          {hideCount === 'show' && (
             <div className="flex w-full flex-col gap-4 text-center md:w-[320px]">
               <Link to="/cart" className="w-full border border-black p-2">
                 Ir al carrito
