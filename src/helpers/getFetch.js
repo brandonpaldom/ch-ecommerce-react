@@ -147,7 +147,7 @@ let products = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Pantalón Tiro Alto',
     description:
       'Pantalón pitillo de tiro alto con costuras marcadas. Bolsillos delanteros de vivo. Cierre frontal con cremallera, botón interior y gancho metálico.',
