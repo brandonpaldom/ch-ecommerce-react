@@ -31,9 +31,6 @@ function Navbar() {
             <Link to="/category/man" className="hover:underline">
               Hombre
             </Link>
-            <Link to="/category/home" className="hover:underline">
-              Hogar
-            </Link>
             <Link to="/category/beauty" className="hover:underline">
               Belleza
             </Link>
@@ -53,9 +50,6 @@ function Navbar() {
             </Link>
             <Link to="/category/man" className="hover:underline">
               Hombre
-            </Link>
-            <Link to="/category/home" className="hover:underline">
-              Hogar
             </Link>
             <Link to="/category/beauty" className="hover:underline">
               Belleza
