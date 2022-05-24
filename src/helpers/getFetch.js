@@ -7,7 +7,7 @@ let products = [
     price: 699,
     newArticle: true,
     category: 'man',
-    stock: 6,
+    stock: 5,
     variations: [
       {
         color: 'Marino',
@@ -55,7 +55,7 @@ let products = [
     price: 549,
     newArticle: true,
     category: 'man',
-    stock: 4,
+    stock: 5,
     variations: [
       {
         color: 'Celeste',
@@ -79,7 +79,7 @@ let products = [
     price: 749,
     newArticle: true,
     category: 'man',
-    stock: 3,
+    stock: 5,
     variations: [
       {
         color: 'Gris',
@@ -103,7 +103,7 @@ let products = [
     price: 899,
     newArticle: false,
     category: 'man',
-    stock: 2,
+    stock: 5,
     variations: [
       {
         color: 'Negro',
@@ -130,7 +130,7 @@ let products = [
     ],
     newArticle: false,
     category: 'man',
-    stock: 1,
+    stock: 5,
     variations: [
       {
         color: 'Tostado Claro',
@@ -154,7 +154,7 @@ let products = [
     price: 749,
     newArticle: false,
     category: 'woman',
-    stock: 1,
+    stock: 5,
     variations: [
       {
         color: 'Rosa',
@@ -201,7 +201,7 @@ let products = [
     price: 299,
     newArticle: false,
     category: 'woman',
-    stock: 4,
+    stock: 5,
     variations: [
       {
         color: 'Lila',
@@ -225,7 +225,7 @@ let products = [
     price: 499,
     newArticle: false,
     category: 'woman',
-    stock: 3,
+    stock: 5,
     variations: [
       {
         color: 'Azul Claro',
@@ -249,7 +249,7 @@ let products = [
     price: 299,
     newArticle: false,
     category: 'beauty',
-    stock: 2,
+    stock: 5,
     variations: [
       {
         color: 'Revival',
@@ -273,7 +273,7 @@ let products = [
     price: 149,
     newArticle: false,
     category: 'beauty',
-    stock: 1,
+    stock: 5,
     variations: [
       {
         color: 'Denim Jacket',
@@ -297,7 +297,7 @@ let products = [
     price: 349,
     newArticle: false,
     category: 'beauty',
-    stock: 0,
+    stock: 5,
     variations: [
       {
         color: 'Hero',
@@ -321,7 +321,7 @@ let products = [
     price: 299,
     newArticle: false,
     category: 'beauty',
-    stock: 0,
+    stock: 5,
     variations: [
       {
         color: 'Bonjour / Vermont',

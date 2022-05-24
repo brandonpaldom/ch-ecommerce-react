@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MinusIcon from '../assets/icons/minus-small.svg';
 import PlusIcon from '../assets/icons/plus-small.svg';
 
-function ItemCount({ stock, initial, onAdd, onShowCount }) {
+function ItemCount({ stock, initial, onAdd, onShowCount, itemExists }) {
   const [count, setCount] = useState(initial);
 
   return (
@@ -51,6 +52,14 @@ function ItemCount({ stock, initial, onAdd, onShowCount }) {
       {stock > 5 && (
         <p className="text-[0.875rem] text-neutral-500">
           Disponibles: {stock} piezas
+        </p>
+      )}
+      {itemExists && (
+        <p className="text-neutral-500">
+          Ya tienes este producto en tu{' '}
+          <Link to="/cart" className="text-black hover:underline">
+            carrito
+          </Link>
         </p>
       )}
     </div>

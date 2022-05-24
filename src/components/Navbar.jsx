@@ -35,7 +35,9 @@ function Navbar() {
               Belleza
             </Link>
           </div>
-          <CartWidget />
+          <Link to="/cart">
+            <CartWidget />
+          </Link>
         </nav>
       </header>
 
