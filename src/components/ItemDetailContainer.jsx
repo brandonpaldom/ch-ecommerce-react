@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import ItemDetail from './ItemDetail';
-import ItemDetailLoader from './ItemDetailLoader';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFetch } from '../helpers/getFetch';
+import ItemDetail from './ItemDetail';
+import ItemDetailLoader from './ItemDetailLoader';
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState({});

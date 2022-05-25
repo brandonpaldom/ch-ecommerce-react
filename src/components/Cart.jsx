@@ -7,7 +7,7 @@ import ShippingInformation from './ShippingInformation';
 function Cart() {
   const { cartList, removeFromCart, emptyCart } = useCartContext();
 
-  const subtotal = cartList
+  const subTotal = cartList
     .map(({ item, quantityToAdd }) => quantityToAdd * item.price)
     .reduce((a, b) => a + b, 0);
 
@@ -21,55 +21,55 @@ function Cart() {
             <div className="flex h-max w-full flex-col gap-4 bg-white p-6 md:w-2/3">
               <p className="text-[1.5rem] leading-tight">Mi carrito</p>
               <div className="flex flex-col gap-4">
-                {cartList.map(
-                  ({ item, quantityToAdd, color, viewColor }, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col gap-4 border-b border-neutral-100 pb-4 md:flex-row"
-                    >
-                      <div>
-                        <img
-                          src={color}
-                          alt=""
-                          className="aspect-square w-[120px] object-cover"
-                        />
-                      </div>
-                      <div className="flex w-full flex-col pt-0 md:w-3/4 md:pt-4">
-                        <div className="flex items-center justify-between">
-                          <p className="leading-tight">{item.title}</p>
-                          <p className="leading-tight">
-                            ${item.price * quantityToAdd}
-                          </p>
-                        </div>
-                        <p className="text-neutral-500">{viewColor}</p>
-                        <p className="text-neutral-500">
-                          Cantidad {quantityToAdd}
-                        </p>
-                        <button
-                          onClick={() => removeFromCart(index)}
-                          className="w-max self-end text-neutral-500 hover:underline"
-                        >
-                          Eliminar
-                        </button>
-                      </div>
+                {cartList.map(({ item, quantityToAdd, color }, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col gap-4 border-b border-neutral-100 pb-4 md:flex-row"
+                  >
+                    <div>
+                      <img
+                        src={color}
+                        alt=""
+                        className="aspect-square w-[120px] object-cover"
+                      />
                     </div>
-                  )
-                )}
+                    <div className="flex w-full flex-col pt-0 md:w-3/4 md:pt-4">
+                      <div className="mb-2 flex items-center justify-between">
+                        <p className="leading-tight">{item.title}</p>
+                        <p className="leading-tight">
+                          ${item.price * quantityToAdd}
+                        </p>
+                      </div>
+                      <p className="mb-2 w-full text-[0.875rem] text-neutral-500 line-clamp-2 sm:w-2/3">
+                        {item.description}
+                      </p>
+                      <p className="text-neutral-500">
+                        Cantidad {quantityToAdd}
+                      </p>
+                      <button
+                        onClick={() => removeFromCart(index)}
+                        className="w-max self-end text-neutral-500 hover:underline"
+                      >
+                        Eliminar
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="flex w-full flex-col gap-2 md:w-2/3">
                 <div className="flex justify-between">
                   <p className="text-neutral-500">Subtotal</p>
-                  <p className="text-neutral-500">${subtotal}</p>
+                  <p className="text-neutral-500">${subTotal}</p>
                 </div>
                 <div className="flex justify-between">
                   <p className="text-neutral-500">Gastos de envío</p>
                   <p className="text-neutral-500">
-                    {`$${subtotal >= 999 ? '0' : '99'}`}
+                    {`$${subTotal >= 999 ? '0' : '99'}`}
                   </p>
                 </div>
                 <div className="flex justify-between">
                   <p>Total</p>
-                  <p>{`$${subtotal >= 999 ? subtotal : subtotal + 99}`}</p>
+                  <p>{`$${subTotal >= 999 ? subTotal : subTotal + 99}`}</p>
                 </div>
               </div>
               <div className="mt-4 flex flex-col justify-end gap-4 text-center md:flex-row">
@@ -95,7 +95,7 @@ function Cart() {
               <p className="text-[1.5rem] leading-tight">
                 Información de envío
               </p>
-              <ShippingInformation shipping={subtotal} />
+              <ShippingInformation shipping={subTotal} />
             </div>
           </div>
           <Shipping />

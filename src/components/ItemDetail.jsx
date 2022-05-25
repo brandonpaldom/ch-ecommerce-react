@@ -7,7 +7,13 @@ import Shipping from './Shipping';
 function ItemDetail({ item }) {
   const { id, title, description, price, newArticle, stock, variations } = item;
 
-  const { addToCart, itemExists, overstock } = useCartContext();
+  const {
+    almostOutOfStock,
+    setAlmostOutOfStock,
+    overstock,
+    setOverstock,
+    addToCart,
+  } = useCartContext();
 
   const [hideCount, setHideCount] = useState('hide');
   const [color, setColor] = useState(variations[0].img);
@@ -64,9 +70,12 @@ function ItemDetail({ item }) {
               initial={1}
               onAdd={onAdd}
               onShowCount={onShowCount}
-              itemExists={itemExists}
-              overstock={overstock}
             />
+          )}
+          {almostOutOfStock && (
+            <p className="text-red-600">
+              Estás a punto de agregar más productos que el stock disponible
+            </p>
           )}
           {overstock && (
             <p className="text-green-600">
@@ -75,10 +84,24 @@ function ItemDetail({ item }) {
           )}
           {hideCount === 'show' && (
             <div className="flex w-full flex-col gap-4 text-center md:w-[320px]">
-              <Link to="/cart" className="w-full bg-black/10 p-2">
+              <Link
+                to="/cart"
+                onClick={(event) => {
+                  setAlmostOutOfStock(false);
+                  setOverstock(false);
+                }}
+                className="w-full bg-black/10 p-2"
+              >
                 Ir al carrito
               </Link>
-              <Link to="/" className="w-full border border-black p-2">
+              <Link
+                to="/"
+                onClick={(event) => {
+                  setAlmostOutOfStock(false);
+                  setOverstock(false);
+                }}
+                className="w-full border border-black p-2"
+              >
                 Seguir comprando
               </Link>
             </div>

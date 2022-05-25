@@ -1,8 +1,8 @@
-import Logo from '../assets/magnolia.svg';
-import MenuIcon from '../assets/icons/menu-burger.svg';
-import CartWidget from './CartWidget';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import MenuIcon from '../assets/icons/menu-burger.svg';
+import Logo from '../assets/magnolia.svg';
+import CartWidget from './CartWidget';
 
 function Navbar() {
   const [show, setShow] = useState(false);

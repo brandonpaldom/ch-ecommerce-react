@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MinusIcon from '../assets/icons/minus-small.svg';
 import PlusIcon from '../assets/icons/plus-small.svg';
+import { useCartContext } from '../context/CartContext';
 
-function ItemCount({ stock, initial, onAdd, onShowCount, itemExists }) {
+function ItemCount({ stock, initial, onAdd, onShowCount }) {
   const [count, setCount] = useState(initial);
+  const { isInCart } = useCartContext();
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-[320px]">
@@ -54,7 +56,7 @@ function ItemCount({ stock, initial, onAdd, onShowCount, itemExists }) {
           Disponibles: {stock} piezas
         </p>
       )}
-      {itemExists && (
+      {isInCart && (
         <p className="text-neutral-500">
           Ya tienes este producto en tu{' '}
           <Link to="/cart" className="text-black hover:underline">

@@ -11,7 +11,7 @@ function CartWidget() {
   return (
     <div className="flex items-center gap-2">
       <img src={ShoppingCartIcon} alt="" width={24} />
-      <span>{products}</span>
+      {products !== 0 && <span>{products}</span>}
     </div>
   );
 }

@@ -8,36 +8,35 @@ const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState(
     JSON.parse(localStorage.getItem('cartList')) || []
   );
-  const [itemExists, setItemExists] = useState(false);
+  const [almostOutOfStock, setAlmostOutOfStock] = useState(false);
   const [overstock, setOverstock] = useState(false);
 
-  const addToCart = (item) => {
-    const itemExists = cartList.find(
-      (cartItem) => cartItem.color === item.color
+  const addToCart = (product) => {
+    const isInCart = cartList.find(
+      (cartItem) => cartItem.item.id === product.item.id
     );
-    const quantityTotal = cartList.reduce((a, b) => a + b.quantityToAdd, 0);
-    if (!itemExists) {
-      const newCartList = [...cartList, item];
-      setCartList(newCartList);
-      localStorage.setItem('cartList', JSON.stringify(newCartList));
-    } else {
+
+    if (isInCart) {
       const newCartList = cartList.map((cartItem) => {
-        if (cartItem.color === item.color) {
-          if (
-            quantityTotal < 5 &&
-            item.quantityToAdd <= item.item.stock - quantityTotal
-          ) {
-            cartItem.quantityToAdd += 1;
-          } else if (item.quantityToAdd + quantityTotal > item.item.stock) {
+        if (cartItem.item.id === product.item.id) {
+          if (cartItem.quantityToAdd === product.item.stock) {
             setOverstock(true);
+          } else if (cartItem.quantityToAdd + product.quantityToAdd > 5) {
+            setAlmostOutOfStock(true);
           } else {
-            setOverstock(true);
+            cartItem.quantityToAdd += product.quantityToAdd;
+            setAlmostOutOfStock(false);
           }
         }
         return cartItem;
       });
       setCartList(newCartList);
       localStorage.setItem('cartList', JSON.stringify(newCartList));
+    } else {
+      const newCartList = [...cartList, product];
+      setCartList(newCartList);
+      localStorage.setItem('cartList', JSON.stringify(newCartList));
+      setAlmostOutOfStock(false);
     }
   };
 
@@ -46,14 +45,12 @@ const CartContextProvider = ({ children }) => {
     newCartList.splice(index, 1);
     setCartList(newCartList);
     localStorage.setItem('cartList', JSON.stringify(newCartList));
-    setItemExists(false);
     setOverstock(false);
   };
 
   const emptyCart = () => {
     setCartList([]);
     localStorage.setItem('cartList', JSON.stringify([]));
-    setItemExists(false);
     setOverstock(false);
   };
 
@@ -61,11 +58,13 @@ const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartList,
+        almostOutOfStock,
+        setAlmostOutOfStock,
+        overstock,
+        setOverstock,
         addToCart,
         removeFromCart,
         emptyCart,
-        itemExists,
-        overstock,
       }}
     >
       {children}
