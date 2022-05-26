@@ -21,7 +21,10 @@ const CartContextProvider = ({ children }) => {
         if (cartItem.item.id === product.item.id) {
           if (cartItem.quantityToAdd === product.item.stock) {
             setOverstock(true);
-          } else if (cartItem.quantityToAdd + product.quantityToAdd > 5) {
+          } else if (
+            cartItem.quantityToAdd + product.quantityToAdd >
+            cartItem.item.stock
+          ) {
             setAlmostOutOfStock(true);
           } else {
             cartItem.quantityToAdd += product.quantityToAdd;
