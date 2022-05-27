@@ -1,11 +1,12 @@
-function Shipping({ shipping }) {
+function ShippingInfo({ shipping }) {
   const today = new Date();
   const thirdDay = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000);
   const day = thirdDay.toLocaleString('default', { weekday: 'long' });
 
   return (
-    <div className="mt-4 flex flex-col gap-4">
-      <div className="grid grid-cols-1 gap-6">
+    <div className="flex flex-col gap-4 bg-white p-6">
+      <p className="text-[1.5rem] leading-tight">Información de envío</p>
+      <div className="grid grid-cols-1 gap-4">
         <label className="block">
           <span className="text-neutral-500">Correo electrónico</span>
           <input
@@ -20,7 +21,7 @@ function Shipping({ shipping }) {
           <input
             type="text"
             className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-50"
-            placeholder="Brandon Palmeros"
+            placeholder="Jose Brandon Palmeros Dominguez"
             disabled
           />
           <select
@@ -85,4 +86,4 @@ function Shipping({ shipping }) {
   );
 }
 
-export default Shipping;
+export default ShippingInfo;

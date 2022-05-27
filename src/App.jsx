@@ -6,6 +6,9 @@ import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
 import Successful from './components/Successful';
 import CartContextProvider from './context/CartContext';
+import getFirestoreApp from './firebase/config';
+
+getFirestoreApp();
 
 function App() {
   return (

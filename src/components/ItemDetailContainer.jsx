@@ -1,6 +1,6 @@
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getFetch } from '../helpers/getFetch';
 import ItemDetail from './ItemDetail';
 import ItemDetailLoader from './ItemDetailLoader';
 
@@ -11,8 +11,11 @@ function ItemDetailContainer() {
   const { itemId } = useParams();
 
   useEffect(() => {
-    getFetch(parseInt(itemId))
-      .then((response) => setProduct(response))
+    const db = getFirestore();
+    const itemCollection = doc(db, 'items', itemId);
+
+    getDoc(itemCollection)
+      .then((resp) => setProduct({ id: resp.id, ...resp.data() }))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   });

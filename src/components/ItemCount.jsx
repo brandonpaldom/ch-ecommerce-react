@@ -6,6 +6,7 @@ import { useCartContext } from '../context/CartContext';
 
 function ItemCount({ stock, initial, onAdd, onShowCount }) {
   const [count, setCount] = useState(initial);
+  
   const { isInCart } = useCartContext();
 
   return (

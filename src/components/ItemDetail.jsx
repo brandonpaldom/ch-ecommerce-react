@@ -7,6 +7,11 @@ import Shipping from './Shipping';
 function ItemDetail({ item }) {
   const { id, title, description, price, newArticle, stock, variations } = item;
 
+  const [hideCount, setHideCount] = useState('hide');
+  const [color, setColor] = useState(variations[0].img);
+  const [viewColor, setViewColor] = useState(variations[0].color);
+  const [isActive, setIsActive] = useState(0);
+
   const {
     almostOutOfStock,
     setAlmostOutOfStock,
@@ -14,11 +19,6 @@ function ItemDetail({ item }) {
     setOverstock,
     addToCart,
   } = useCartContext();
-
-  const [hideCount, setHideCount] = useState('hide');
-  const [color, setColor] = useState(variations[0].img);
-  const [viewColor, setViewColor] = useState(variations[0].color);
-  const [isActive, setIsActive] = useState(0);
 
   function onAdd(quantityToAdd) {
     addToCart({ item, quantityToAdd, color, viewColor });

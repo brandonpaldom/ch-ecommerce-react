@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getFetch } from '../helpers/getFetch';
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  where,
+  query,
+} from 'firebase/firestore';
 import ItemList from './ItemList';
 
 function ItemListContainer() {
@@ -12,18 +18,27 @@ function ItemListContainer() {
   useEffect(() => {
     setLoading(true);
 
+    const db = getFirestore();
+
     if (categoryId) {
-      getFetch()
-        .then((response) =>
-          setProducts(
-            response.filter((productos) => productos.category === categoryId)
-          )
+      const q = query(
+        collection(db, 'items'),
+        where('category', '==', categoryId)
+      );
+
+      getDocs(q)
+        .then((resp) =>
+          setProducts(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
         )
         .catch((err) => console.log(err))
         .finally(() => setLoading(false));
     } else {
-      getFetch()
-        .then((response) => setProducts(response))
+      const itemsCollection = collection(db, 'items');
+
+      getDocs(itemsCollection)
+        .then((resp) =>
+          setProducts(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        )
         .catch((err) => console.log(err))
         .finally(() => setLoading(false));
     }

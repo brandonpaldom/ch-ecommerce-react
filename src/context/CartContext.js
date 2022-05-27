@@ -23,7 +23,7 @@ const CartContextProvider = ({ children }) => {
             setOverstock(true);
           } else if (
             cartItem.quantityToAdd + product.quantityToAdd >
-            cartItem.item.stock
+            product.item.stock
           ) {
             setAlmostOutOfStock(true);
           } else {
@@ -33,10 +33,12 @@ const CartContextProvider = ({ children }) => {
         }
         return cartItem;
       });
+
       setCartList(newCartList);
       localStorage.setItem('cartList', JSON.stringify(newCartList));
     } else {
       const newCartList = [...cartList, product];
+
       setCartList(newCartList);
       localStorage.setItem('cartList', JSON.stringify(newCartList));
       setAlmostOutOfStock(false);
@@ -45,6 +47,7 @@ const CartContextProvider = ({ children }) => {
 
   const removeFromCart = (index) => {
     const newCartList = [...cartList];
+
     newCartList.splice(index, 1);
     setCartList(newCartList);
     localStorage.setItem('cartList', JSON.stringify(newCartList));
