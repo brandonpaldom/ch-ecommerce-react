@@ -13,7 +13,7 @@ function PaymentInfo() {
             <input
               type="radio"
               name="payment-method"
-              className="rounded-full border-transparent bg-neutral-200 text-neutral-700 focus:border-transparent focus:bg-neutral-200 focus:ring-1 focus:ring-neutral-500 focus:ring-offset-2 disabled:opacity-50"
+              className="rounded-full border-transparent bg-neutral-200 text-neutral-700 focus:border-transparent focus:bg-neutral-200 focus:ring-1 focus:ring-neutral-500 focus:ring-offset-2 disabled:opacity-25"
               disabled
             />
             <span className="ml-2">PayPal</span>
@@ -27,7 +27,7 @@ function PaymentInfo() {
                 type="radio"
                 name="payment-method"
                 checked
-                className="rounded-full border-transparent bg-neutral-200 text-neutral-700 focus:border-transparent focus:bg-neutral-200 focus:ring-1 focus:ring-neutral-500 focus:ring-offset-2 disabled:opacity-50"
+                className="rounded-full border-transparent bg-neutral-200 text-neutral-700 focus:border-transparent focus:bg-neutral-200 focus:ring-1 focus:ring-neutral-500 focus:ring-offset-2 disabled:opacity-25"
                 disabled
               />
               <span className="ml-2">Tarjeta de crédito o débito</span>
@@ -43,7 +43,7 @@ function PaymentInfo() {
               <span className="text-neutral-500">Nombre de la tarjeta</span>
               <input
                 type="number"
-                className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-50"
+                className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
                 placeholder="Jose Brandon Palmeros Dominguez"
                 disabled
               />
@@ -52,7 +52,7 @@ function PaymentInfo() {
               <span className="text-neutral-500">Número de tarjeta</span>
               <input
                 type="number"
-                className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-50"
+                className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
                 placeholder="4242 4242 4242 4242"
                 disabled
               />
@@ -62,7 +62,7 @@ function PaymentInfo() {
                 <span className="text-neutral-500">MM/AA</span>
                 <input
                   type="number"
-                  className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-50"
+                  className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
                   placeholder="01/26"
                   disabled
                 />
@@ -71,7 +71,7 @@ function PaymentInfo() {
                 <span className="text-neutral-500">CVC/CVV</span>
                 <input
                   type="number"
-                  className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-50"
+                  className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
                   placeholder="123"
                   disabled
                 />

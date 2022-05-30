@@ -32,29 +32,6 @@ function Successful() {
         />
       </div>
     </div>
-    // <div className="p-6">
-    //   <div className="mx-auto flex max-w-[1024px] flex-col items-center gap-4 bg-white p-6 text-center">
-    //     <InfoIcon className="h-8 w-8 fill-green-600" />
-    //     <h1 className="text-[1.5rem]">
-    //       ¡Su compra se ha completado con éxito!
-    //     </h1>
-    //     <p>
-    //       Gracias por su compra. Su pedido ha sido procesado y será enviado lo
-    //       antes posible. Recibirá un correo electrónico de confirmación con los
-    //       detalles de su pedido.
-    //     </p>
-    //     <p className="text-neutral-500">
-    //       Si tienes alguna duda, ponte en contacto con nuestro equipo de
-    //       atención al cliente en{' '}
-    //       <span className="text-black hover:underline">
-    //         clientes@magnolia.com
-    //       </span>
-    //     </p>
-    //     <Link to="/" className="w-full bg-black py-2 px-4 text-white md:w-max">
-    //       Seguir comprando
-    //     </Link>
-    //   </div>
-    // </div>
   );
 }
 

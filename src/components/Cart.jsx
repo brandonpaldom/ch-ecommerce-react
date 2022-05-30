@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
+import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
 import PaymentInfo from './PaymentInfo';
 import Shipping from './Shipping';
@@ -23,39 +24,12 @@ function Cart() {
               <div className="flex h-max w-full flex-col gap-4 bg-white p-6">
                 <p className="text-[1.5rem] leading-tight">Mi carrito</p>
                 <div className="flex flex-col gap-4">
-                  {cartList.map(({ item, quantityToAdd, color }, index) => (
-                    <div
+                  {cartList.map((cartItem, index) => (
+                    <CartItem
+                      {...cartItem}
                       key={index}
-                      className="flex flex-col gap-4 border-b border-neutral-100 pb-4 md:flex-row"
-                    >
-                      <div>
-                        <img
-                          src={color}
-                          alt=""
-                          className="aspect-square w-[120px] object-cover"
-                        />
-                      </div>
-                      <div className="flex w-full flex-col pt-0 md:w-3/4 md:pt-4">
-                        <div className="mb-2 flex items-center justify-between">
-                          <p className="leading-tight">{item.title}</p>
-                          <p className="leading-tight">
-                            ${item.price * quantityToAdd}
-                          </p>
-                        </div>
-                        <p className="mb-2 w-full text-[0.875rem] text-neutral-500 line-clamp-2 sm:w-2/3">
-                          {item.description}
-                        </p>
-                        <p className="text-neutral-500">
-                          Cantidad {quantityToAdd}
-                        </p>
-                        <button
-                          onClick={() => removeFromCart(index)}
-                          className="w-max self-end text-neutral-500 hover:underline"
-                        >
-                          Eliminar
-                        </button>
-                      </div>
-                    </div>
+                      removeFromCart={() => removeFromCart(index)}
+                    />
                   ))}
                 </div>
                 <div className="flex w-full flex-col gap-2 md:w-2/3">
