@@ -5,6 +5,7 @@ import EmptyCart from './EmptyCart';
 import PaymentInfo from './PaymentInfo';
 import Shipping from './Shipping';
 import ShippingInfo from './ShippingInfo';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 function Cart() {
   const { cartList, removeFromCart, emptyCart } = useCartContext();
@@ -12,6 +13,30 @@ function Cart() {
   const subTotal = cartList
     .map(({ item, quantityToAdd }) => quantityToAdd * item.price)
     .reduce((a, b) => a + b, 0);
+
+  function createOrder() {
+    const order = {
+      buyer: {
+        name: 'Jose Brandon Palmeros Dominguez',
+        phone: '2281734676',
+        email: 'brandonpaldom@gmail.com',
+      },
+      items: cartList.map(({ item }) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+      })),
+      date: new Date(),
+      total: subTotal >= 999 ? subTotal : subTotal + 99,
+    };
+
+    const db = getFirestore();
+    const q = collection(db, 'orders');
+    addDoc(q, order)
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err))
+      .finally(() => emptyCart());
+  }
 
   return (
     <>
@@ -63,7 +88,7 @@ function Cart() {
                   </Link>
                   <Link
                     to="/successful"
-                    onClick={emptyCart}
+                    onClick={createOrder}
                     className="w-full bg-black py-2 px-4 text-white md:w-max"
                   >
                     Comprar ahora
@@ -73,7 +98,7 @@ function Cart() {
               <PaymentInfo />
             </div>
             <div className="w-full md:w-1/3">
-              <ShippingInfo shipping={subTotal} />
+              <ShippingInfo shipping={subTotal} createOrder={createOrder} />
             </div>
           </div>
           <Shipping />

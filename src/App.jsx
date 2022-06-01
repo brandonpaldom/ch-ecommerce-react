@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Banner from './components/Banner';
 import Cart from './components/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
@@ -11,8 +13,15 @@ import getFirestoreApp from './firebase/config';
 getFirestoreApp();
 
 function App() {
+  const [showBanner, setShowBanner] = useState(true);
+
+  const handleCloseBanner = () => {
+    setShowBanner(false);
+  };
+
   return (
     <CartContextProvider>
+      {showBanner && <Banner handleCloseBanner={handleCloseBanner} />}
       <Navbar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />

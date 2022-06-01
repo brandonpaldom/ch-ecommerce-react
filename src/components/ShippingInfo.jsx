@@ -1,4 +1,6 @@
-function ShippingInfo({ shipping }) {
+import { Link } from 'react-router-dom';
+
+function ShippingInfo({ shipping, createOrder }) {
   const today = new Date();
   const thirdDay = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000);
   const day = thirdDay.toLocaleString('default', { weekday: 'long' });
@@ -82,6 +84,13 @@ function ShippingInfo({ shipping }) {
       >
         Editar dirección
       </button>
+      <Link
+        to="/successful"
+        onClick={createOrder}
+        className="w-full bg-black py-2 px-4 text-center text-white md:hidden"
+      >
+        Comprar ahora
+      </Link>
     </div>
   );
 }

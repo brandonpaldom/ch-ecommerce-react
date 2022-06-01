@@ -5,7 +5,7 @@ function Successful() {
   return (
     <div className="mx-auto grid max-w-[1024px] grid-cols-1 p-6 sm:grid-cols-2">
       <div className="flex flex-col items-center justify-center gap-4 bg-white p-6 text-center">
-        <InfoIcon className="h-8 w-8 fill-green-600" />
+        <InfoIcon className="h-8 w-8 animate-bounce fill-green-600" />
         <h1 className="text-[1.5rem] leading-tight">
           ¡Su compra se ha completado con éxito!
         </h1>
