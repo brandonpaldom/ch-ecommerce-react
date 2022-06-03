@@ -8,37 +8,48 @@ const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState(
     JSON.parse(localStorage.getItem('cartList')) || []
   );
+
   const [almostOutOfStock, setAlmostOutOfStock] = useState(false);
   const [overstock, setOverstock] = useState(false);
+  const [getOrderId, setGetOrderId] = useState(null);
 
   const addToCart = (product) => {
-    const isInCart = cartList.find(
-      (cartItem) => cartItem.item.id === product.item.id
-    );
+    const isInCart = cartList.find((item) => item.item.id === product.item.id);
+    const colorExist = cartList.find((item) => item.color === product.color);
 
     if (isInCart) {
-      const newCartList = cartList.map((cartItem) => {
-        if (cartItem.item.id === product.item.id) {
-          if (cartItem.quantityToAdd === product.item.stock) {
-            setOverstock(true);
-          } else if (
-            cartItem.quantityToAdd + product.quantityToAdd >
-            product.item.stock
+      if (colorExist) {
+        const newCartList = cartList.map((cartItem) => {
+          if (
+            cartItem.item.id === product.item.id &&
+            cartItem.color === product.color
           ) {
-            setAlmostOutOfStock(true);
-          } else {
-            cartItem.quantityToAdd += product.quantityToAdd;
-            setAlmostOutOfStock(false);
+            if (cartItem.quantityToAdd === product.item.stock) {
+              setOverstock(true);
+            } else if (
+              cartItem.quantityToAdd + product.quantityToAdd >
+              product.item.stock
+            ) {
+              setAlmostOutOfStock(true);
+            } else {
+              cartItem.quantityToAdd += product.quantityToAdd;
+              setAlmostOutOfStock(false);
+            }
           }
-        }
-        return cartItem;
-      });
 
-      setCartList(newCartList);
-      localStorage.setItem('cartList', JSON.stringify(newCartList));
+          return cartItem;
+        });
+
+        setCartList(newCartList);
+        localStorage.setItem('cartList', JSON.stringify(newCartList));
+      } else {
+        const newCartList = [...cartList, product];
+        setCartList(newCartList);
+        localStorage.setItem('cartList', JSON.stringify(newCartList));
+        setAlmostOutOfStock(false);
+      }
     } else {
       const newCartList = [...cartList, product];
-
       setCartList(newCartList);
       localStorage.setItem('cartList', JSON.stringify(newCartList));
       setAlmostOutOfStock(false);
@@ -71,6 +82,8 @@ const CartContextProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         emptyCart,
+        getOrderId,
+        setGetOrderId,
       }}
     >
       {children}

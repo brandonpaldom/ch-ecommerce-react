@@ -1,14 +1,29 @@
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
-import PaymentInfo from './PaymentInfo';
+import FormCart from './FormCart';
 import Shipping from './Shipping';
 import ShippingInfo from './ShippingInfo';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 function Cart() {
-  const { cartList, removeFromCart, emptyCart } = useCartContext();
+  const { cartList, removeFromCart, emptyCart, setGetOrderId } =
+    useCartContext();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const subTotal = cartList
     .map(({ item, quantityToAdd }) => quantityToAdd * item.price)
@@ -17,25 +32,34 @@ function Cart() {
   function createOrder() {
     const order = {
       buyer: {
-        name: 'Jose Brandon Palmeros Dominguez',
-        phone: '2281734676',
-        email: 'brandonpaldom@gmail.com',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
       },
-      items: cartList.map(({ item }) => ({
+      items: cartList.map(({ item, color, viewColor, quantityToAdd }) => ({
         id: item.id,
-        title: item.title,
+        description: item.description,
         price: item.price,
+        title: item.title,
+        color: color,
+        viewColor: viewColor,
+        quantity: quantityToAdd,
       })),
-      date: new Date(),
+      date: new Date(2020, 6, 6),
       total: subTotal >= 999 ? subTotal : subTotal + 99,
     };
 
     const db = getFirestore();
     const q = collection(db, 'orders');
     addDoc(q, order)
-      .then((resp) => console.log(resp))
+      .then((resp) => {
+        setGetOrderId(resp.id);
+        console.log('ID de pedido', resp.id);
+      })
       .catch((err) => console.log(err))
       .finally(() => emptyCart());
+
+    console.log('Pedido', order);
   }
 
   return (
@@ -45,61 +69,39 @@ function Cart() {
       ) : (
         <div className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
           <div className="flex flex-col gap-4 md:flex-row">
-            <div className="flex w-full flex-col gap-4 md:w-2/3">
-              <div className="flex h-max w-full flex-col gap-4 bg-white p-6">
-                <p className="text-[1.5rem] leading-tight">Mi carrito</p>
-                <div className="flex flex-col gap-4">
-                  {cartList.map((cartItem, index) => (
-                    <CartItem
-                      {...cartItem}
-                      key={index}
-                      removeFromCart={() => removeFromCart(index)}
-                    />
-                  ))}
-                </div>
-                <div className="flex w-full flex-col gap-2 md:w-2/3">
-                  <div className="flex justify-between">
-                    <p className="text-neutral-500">Subtotal</p>
-                    <p className="text-neutral-500">${subTotal}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <p className="text-neutral-500">Gastos de envío</p>
-                    <p className="text-neutral-500">
-                      {`$${subTotal >= 999 ? '0' : '99'}`}
-                    </p>
-                  </div>
-                  <div className="flex justify-between">
-                    <p>Total</p>
-                    <p>{`$${subTotal >= 999 ? subTotal : subTotal + 99}`}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex flex-col justify-end gap-4 text-center md:flex-row">
-                  <button
-                    onClick={emptyCart}
-                    className="w-full border border-black py-2 px-4 md:w-max"
-                  >
-                    Vaciar carrito
-                  </button>
-                  <Link
-                    to="/"
-                    className="w-full bg-black/10 py-2 px-4 md:w-max"
-                  >
-                    Seguir comprando
-                  </Link>
-                  <Link
-                    to="/successful"
-                    onClick={createOrder}
-                    className="w-full bg-black py-2 px-4 text-white md:w-max"
-                  >
-                    Comprar ahora
-                  </Link>
-                </div>
+            <div className="flex w-full flex-col gap-4 bg-white p-6 md:w-2/3">
+              <p className="text-[1.5rem] leading-tight">Mi carrito</p>
+              <div className="flex flex-col gap-4">
+                {cartList.map((cartItem, index) => (
+                  <CartItem
+                    {...cartItem}
+                    key={index}
+                    removeFromCart={() => removeFromCart(index)}
+                  />
+                ))}
               </div>
-              <PaymentInfo />
+              <p className="text-[1.5rem] leading-tight">Mis datos</p>
+              <FormCart formData={formData} handleChange={handleChange} />
+              <div className="mt-4 flex flex-col justify-end gap-4 text-center md:flex-row">
+                <button
+                  onClick={emptyCart}
+                  className="w-full border border-black py-2 px-4 md:w-max"
+                >
+                  Vaciar carrito
+                </button>
+                <Link to="/" className="w-full bg-black/10 py-2 px-4 md:w-max">
+                  Seguir comprando
+                </Link>
+                <Link
+                  onClick={createOrder}
+                  to="/successful"
+                  className="w-full bg-black py-2 px-4 text-white md:w-max"
+                >
+                  Comprar ahora
+                </Link>
+              </div>
             </div>
-            <div className="w-full md:w-1/3">
-              <ShippingInfo shipping={subTotal} createOrder={createOrder} />
-            </div>
+            <ShippingInfo shipping={subTotal} />
           </div>
           <Shipping />
         </div>

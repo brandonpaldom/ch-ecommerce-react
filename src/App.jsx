@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
+import Order from './components/Order';
 import Successful from './components/Successful';
 import CartContextProvider from './context/CartContext';
 import getFirestoreApp from './firebase/config';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/successful" element={<Successful />} />
+        <Route path="/order/:orderId" element={<Order />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </CartContextProvider>

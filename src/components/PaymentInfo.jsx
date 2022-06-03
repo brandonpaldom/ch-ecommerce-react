@@ -1,7 +1,7 @@
+import AmericanExpressIcon from '../assets/payment/american-express.svg';
+import MastercardIcon from '../assets/payment/mastercard.svg';
 import PayPalLogo from '../assets/payment/paypal.svg';
 import VisaIcon from '../assets/payment/visa.svg';
-import MastercardIcon from '../assets/payment/mastercard.svg';
-import AmericanExpressIcon from '../assets/payment/american-express.svg';
 
 function PaymentInfo() {
   return (

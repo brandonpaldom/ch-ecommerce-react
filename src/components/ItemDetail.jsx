@@ -54,7 +54,11 @@ function ItemDetail({ item }) {
             {variations.map(({ img }, index) => (
               <img
                 key={index}
-                onClick={() => selectColor(index)}
+                onClick={() => {
+                  selectColor(index);
+                  setAlmostOutOfStock(false);
+                  setOverstock(false);
+                }}
                 src={img}
                 alt=""
                 className={`${
@@ -96,11 +100,7 @@ function ItemDetail({ item }) {
               </Link>
               <Link
                 to="/"
-                onClick={(event) => {
-                  setAlmostOutOfStock(false);
-                  setOverstock(false);
-                }}
-                className="w-full border border-black p-2"
+                className="w-full border border-black py-2 px-4 md:w-[320px]"
               >
                 Seguir comprando
               </Link>

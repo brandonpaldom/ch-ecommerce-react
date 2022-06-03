@@ -1,74 +1,28 @@
-import { Link } from 'react-router-dom';
-
-function ShippingInfo({ shipping, createOrder }) {
+function ShippingInfo({ shipping }) {
   const today = new Date();
   const thirdDay = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000);
   const day = thirdDay.toLocaleString('default', { weekday: 'long' });
 
   return (
-    <div className="flex flex-col gap-4 bg-white p-6">
-      <p className="text-[1.5rem] leading-tight">Información de envío</p>
-      <div className="grid grid-cols-1 gap-4">
-        <label className="block">
-          <span className="text-neutral-500">Correo electrónico</span>
-          <input
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            placeholder="brandon@mail.com"
-            disabled
-          />
-        </label>
-        <label className="block">
-          <span className="text-neutral-500">Dirección de envío</span>
-          <input
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            placeholder="Jose Brandon Palmeros Dominguez"
-            disabled
-          />
-          <select
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            disabled
-          >
-            <option>México</option>
-          </select>
-          <input
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            placeholder="Calle del Sur #123, Col. Centro"
-            disabled
-          />
-          <input
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            placeholder="Edificio 4, 3er piso"
-            disabled
-          />
-          <div className="mt-1 grid grid-cols-2 gap-1">
-            <input
-              type="text"
-              className="block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-              placeholder="Veracruz"
-              disabled
-            />
-            <input
-              type="text"
-              className="block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-              placeholder="91700"
-              disabled
-            />
-          </div>
-          <select
-            type="text"
-            className="mt-1 block w-full border-transparent bg-neutral-100 py-1 px-2 focus:border-neutral-500 focus:bg-white focus:ring-0 disabled:opacity-25"
-            placeholder="Estado"
-            disabled
-          >
-            <option>Veracruz</option>
-          </select>
-        </label>
+    <div className="flex h-max w-full flex-col gap-4 bg-white p-6 md:w-1/3">
+      <p className="text-[1.5rem] leading-tight">Resumen de compra</p>
+      <div className="flex w-full flex-col gap-2 border-b border-neutral-100 pb-4">
+        <div className="flex justify-between">
+          <p className="text-neutral-500">Subtotal</p>
+          <p className="text-neutral-500">${shipping}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="text-neutral-500">Gastos de envío</p>
+          <p className="text-neutral-500">
+            {`$${shipping >= 999 ? '0' : '99'}`}
+          </p>
+        </div>
+        <div className="flex justify-between">
+          <p>Total</p>
+          <p>{`$${shipping >= 999 ? shipping : shipping + 99}`}</p>
+        </div>
       </div>
+      <p className="text-[1.5rem] leading-tight">Información de envío</p>
       <div className="block">
         <p className="text-neutral-500">Método de envío</p>
         {shipping >= 999 ? (
@@ -78,19 +32,6 @@ function ShippingInfo({ shipping, createOrder }) {
         )}
         <p className="text-neutral-500">Llega el {day} antes de las 8:00 pm</p>
       </div>
-      <button
-        className="w-full self-end bg-black/10 py-2 px-4 disabled:opacity-25 md:w-max"
-        disabled
-      >
-        Editar dirección
-      </button>
-      <Link
-        to="/successful"
-        onClick={createOrder}
-        className="w-full bg-black py-2 px-4 text-center text-white md:hidden"
-      >
-        Comprar ahora
-      </Link>
     </div>
   );
 }

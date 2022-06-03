@@ -18,7 +18,7 @@ function ItemDetailContainer() {
       .then((resp) => setProduct({ id: resp.id, ...resp.data() }))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  });
+  }, [itemId]);
 
   return <>{loading ? <ItemDetailLoader /> : <ItemDetail item={product} />}</>;
 }

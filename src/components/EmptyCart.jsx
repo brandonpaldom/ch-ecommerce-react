@@ -9,7 +9,7 @@ function EmptyCart() {
         <p className="text-center text-neutral-500">
           Su cesta de la compra está actualmente vacía.
         </p>
-        <Link to="/" className="w-max bg-black/10 py-2 px-4">
+        <Link to="/" className="w-max bg-black px-4 py-2 text-white">
           Seguir comprando
         </Link>
       </div>
