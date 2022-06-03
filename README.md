@@ -9,9 +9,9 @@
 
 Magnolia es un ecommerce creado como proyecto del Curso de React JS de Coderhouse. Algunas de las tecnologías usadas durante en el proyecto son:
 
-- **React:** Es una librería de JavaScript creada por Facebook para crear interfaces de usuario.
+- **React:** Es una librería de JavaScript para crear interfaces de usuario.
 
-- **React Router:** Es una librería de JavaScript creada por Facebook para crear rutas en React. En pocas palabras me permite añadir rutas como /category/beauty o /cart.
+- **React Router:** Es una librería de JavaScript para crear rutas en React. En pocas palabras me permite añadir rutas como /category/beauty o /cart.
 
 - **Firebase:** Es una librería de JavaScript creada por Google para crear bases de datos en la nube.
 
