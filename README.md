@@ -1,5 +1,11 @@
-![](https://res.cloudinary.com/dlomynswh/image/upload/v1654223173/ch-ecommerce/readme/logo-dark_indlcg.svg#gh-dark-mode-only)
-![](https://res.cloudinary.com/dlomynswh/image/upload/v1654223173/ch-ecommerce/readme/logo-light_cyztqp.svg#gh-light-mode-only)
+<p>
+  <a href="https://magnolia-shop.netlify.app/#gh-light-mode-only" target="_blank">
+    <img src="https://res.cloudinary.com/dlomynswh/image/upload/v1654223173/ch-ecommerce/readme/logo-light_cyztqp.svg" width="350">
+  </a>
+  <a href="https://magnolia-shop.netlify.app/#gh-dark-mode-only" target="_blank">
+    <img src="https://res.cloudinary.com/dlomynswh/image/upload/v1654223173/ch-ecommerce/readme/logo-dark_indlcg.svg" width="350">
+  </a>
+</p>
 
 Magnolia es un ecommerce creado como proyecto del Curso de React JS de Coderhouse. Algunas de las tecnologías usadas durante en el proyecto son:
 
