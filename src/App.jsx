@@ -22,7 +22,12 @@ function App() {
 
   return (
     <CartContextProvider>
-      {showBanner && <Banner handleCloseBanner={handleCloseBanner} />}
+      {showBanner && (
+        <Banner
+          text="Envíos sin costo en compras mayores a $999"
+          handleCloseBanner={handleCloseBanner}
+        />
+      )}
       <Navbar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />

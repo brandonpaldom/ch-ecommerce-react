@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Button from './Button';
 
 function NotProducts() {
   return (
@@ -8,9 +8,9 @@ function NotProducts() {
           Lo sentimos, no hay productos en esta categoría en este momento. Por
           favor, vuelva a comprobarlo pronto.
         </p>
-        <Link to="/" className="w-max bg-black px-4 py-2 text-white">
+        <Button link path={'/'} primary wmax>
           Regresar al inicio
-        </Link>
+        </Button>
       </div>
     </div>
   );

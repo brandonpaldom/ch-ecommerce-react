@@ -1,7 +1,7 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
+import Button from './Button';
 import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
 import FormCart from './FormCart';
@@ -83,22 +83,26 @@ function Cart() {
               <p className="text-[1.5rem] leading-tight">Mis datos</p>
               <FormCart formData={formData} handleChange={handleChange} />
               <div className="mt-4 flex flex-col justify-end gap-4 text-center md:flex-row">
-                <button
-                  onClick={emptyCart}
-                  className="w-full border border-black py-2 px-4 md:w-max"
-                >
+                <Button onClick={emptyCart} border wmax>
                   Vaciar carrito
-                </button>
-                <Link to="/" className="w-full bg-black/10 py-2 px-4 md:w-max">
+                </Button>
+                <Button link path={'/'} secondary wmax>
                   Seguir comprando
-                </Link>
-                <Link
+                </Button>
+                <Button
+                  link
                   onClick={createOrder}
-                  to="/successful"
-                  className="w-full bg-black py-2 px-4 text-white md:w-max"
+                  path={'/successful'}
+                  primary
+                  wmax
+                  disabled={
+                    formData.name === '' ||
+                    formData.email === '' ||
+                    formData.phone === ''
+                  }
                 >
                   Comprar ahora
-                </Link>
+                </Button>
               </div>
             </div>
             <ShippingInfo shipping={subTotal} />

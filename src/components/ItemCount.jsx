@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MinusIcon from '../assets/icons/minus-small.svg';
 import PlusIcon from '../assets/icons/plus-small.svg';
 import { useCartContext } from '../context/CartContext';
+import Button from './Button';
 
 function ItemCount({ stock, initial, onAdd, onShowCount }) {
   const [count, setCount] = useState(initial);
@@ -40,18 +41,18 @@ function ItemCount({ stock, initial, onAdd, onShowCount }) {
           <img src={PlusIcon} alt="" width={24} />
         </button>
       </div>
-      <button
+      <Button
         onClick={() => {
           onShowCount();
           onAdd(count);
         }}
-        className={`${
-          stock === 0 && 'opacity-20'
-        } w-full bg-black p-2 text-white`}
+        primary
+        transparent={stock === 0}
+        wfull
         disabled={stock === 0}
       >
         Agregar al carrito
-      </button>
+      </Button>
       {stock > 5 && (
         <p className="text-[0.875rem] text-neutral-500">
           Disponibles: {stock} piezas

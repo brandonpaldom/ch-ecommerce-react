@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
+import Button from './Button';
 import ItemCount from './ItemCount';
 import Shipping from './Shipping';
 
@@ -88,22 +88,21 @@ function ItemDetail({ item }) {
           )}
           {hideCount === 'show' && (
             <div className="flex w-full flex-col gap-4 text-center md:w-[320px]">
-              <Link
-                to="/cart"
+              <Button
+                link
+                path="/cart"
+                secondary
+                wfull
                 onClick={(event) => {
                   setAlmostOutOfStock(false);
                   setOverstock(false);
                 }}
-                className="w-full bg-black/10 p-2"
               >
                 Ir al carrito
-              </Link>
-              <Link
-                to="/"
-                className="w-full border border-black py-2 px-4 md:w-[320px]"
-              >
+              </Button>
+              <Button link path="/" border wfull>
                 Seguir comprando
-              </Link>
+              </Button>
             </div>
           )}
         </div>

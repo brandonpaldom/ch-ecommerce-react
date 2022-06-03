@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '../assets/icons/menu-burger.svg';
 import Logo from '../assets/magnolia.svg';
 import CartWidget from './CartWidget';
+import NavbarItem from './NavbarItem';
 
 function Navbar() {
   const [show, setShow] = useState(false);
@@ -10,6 +11,25 @@ function Navbar() {
   const handleToggle = () => {
     setShow(!show);
   };
+
+  const options = [
+    {
+      path: '/',
+      text: 'Tienda',
+    },
+    {
+      path: '/category/woman',
+      text: 'Mujer',
+    },
+    {
+      path: '/category/man',
+      text: 'Hombre',
+    },
+    {
+      path: '/category/beauty',
+      text: 'Belleza',
+    },
+  ];
 
   return (
     <>
@@ -22,18 +42,9 @@ function Navbar() {
             <img src={Logo} alt="" />
           </Link>
           <div className="hidden items-center gap-4 sm:flex">
-            <Link to="/" className="hover:underline">
-              Tienda
-            </Link>
-            <Link to="/category/woman" className="hover:underline">
-              Mujer
-            </Link>
-            <Link to="/category/man" className="hover:underline">
-              Hombre
-            </Link>
-            <Link to="/category/beauty" className="hover:underline">
-              Belleza
-            </Link>
+            {options.map(({ text, path }, index) => (
+              <NavbarItem key={index} path={path} text={text} />
+            ))}
           </div>
           <Link to="/cart">
             <CartWidget />
@@ -44,18 +55,9 @@ function Navbar() {
       {show && (
         <div className="absolute z-10 w-1/2 bg-blue-100 p-6 sm:hidden">
           <div className="flex flex-col gap-4">
-            <Link to="/" className="hover:underline">
-              Tienda
-            </Link>
-            <Link to="/category/woman" className="hover:underline">
-              Mujer
-            </Link>
-            <Link to="/category/man" className="hover:underline">
-              Hombre
-            </Link>
-            <Link to="/category/beauty" className="hover:underline">
-              Belleza
-            </Link>
+            {options.map(({ text, path }, index) => (
+              <NavbarItem key={index} path={path} text={text} />
+            ))}
           </div>
         </div>
       )}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ReactComponent as InfoIcon } from '../assets/icons/info.svg';
 import { useCartContext } from '../context/CartContext';
+import Button from './Button';
 import SuccessfulLoader from './SuccessfulLoader';
 
 function Successful() {
@@ -15,22 +16,16 @@ function Successful() {
             ¡Su compra <Link to={`/order/${getOrderId}`}>#{getOrderId}</Link> se
             ha completado con éxito!
           </h1>
-          <Link
-            to={`/order/${getOrderId}`}
-            className="w-full bg-black/10 py-2 px-4 md:w-max"
-          >
-            Ver detalles de mi pedido
-          </Link>
+          <Button link path={`/order/${getOrderId}`} primary wmax>
+            Ver detalles de la compra
+          </Button>
           <p>
             Gracias por su compra. Su pedido ha sido procesado y será enviado lo
             antes posible.
           </p>
-          <Link
-            to="/"
-            className="w-full bg-black py-2 px-4 text-white md:w-max"
-          >
+          <Button link path={'/'} secondary wmax>
             Seguir comprando
-          </Link>
+          </Button>
         </div>
       ) : (
         <SuccessfulLoader />

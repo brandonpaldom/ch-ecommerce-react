@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import ExclamationIcon from '../assets/icons/exclamation.svg';
+import Button from './Button';
 
 function NotFound() {
   return (
@@ -10,9 +10,9 @@ function NotFound() {
           Lo sentimos, pero la página que busca no existe. Por favor, compruebe
           la URL e inténtelo de nuevo.
         </p>
-        <Link to="/" className="w-max bg-black/10 py-2 px-4">
+        <Button link path={'/'} primary wmax>
           Regresar al inicio
-        </Link>
+        </Button>
       </div>
     </div>
   );

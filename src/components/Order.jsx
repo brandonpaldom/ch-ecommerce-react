@@ -1,6 +1,7 @@
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Button from './Button';
 import OrderItem from './OrderItem';
 import OrderLoader from './OrderLoader';
 import Shipping from './Shipping';
@@ -47,12 +48,9 @@ function Order() {
             <p>Total</p>
             <p>${total}</p>
           </div>
-          <Link
-            to="/"
-            className="w-full bg-black py-2 px-4 text-white md:w-max"
-          >
+          <Button link path={'/'} primary wmax>
             Seguir comprando
-          </Link>
+          </Button>
         </div>
       )}
       <Shipping />
