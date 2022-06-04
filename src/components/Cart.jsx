@@ -1,5 +1,6 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import Button from './Button';
 import CartItem from './CartItem';
@@ -86,9 +87,11 @@ function Cart() {
                 <Button onClick={emptyCart} outlined wmax>
                   Vaciar carrito
                 </Button>
-                <Button link path={'/'} standard wmax>
-                  Seguir comprando
-                </Button>
+                <Link to="/">
+                  <Button standard wmax>
+                    Seguir comprando
+                  </Button>
+                </Link>
                 <Button
                   link
                   onClick={createOrder}
