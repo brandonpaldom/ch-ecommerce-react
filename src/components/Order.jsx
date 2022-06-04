@@ -48,7 +48,7 @@ function Order() {
             <p>Total</p>
             <p>${total}</p>
           </div>
-          <Button link path={'/'} primary wmax>
+          <Button link path={'/'} filled wmax>
             Seguir comprando
           </Button>
         </div>

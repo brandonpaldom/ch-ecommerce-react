@@ -16,14 +16,14 @@ function Successful() {
             ¡Su compra <Link to={`/order/${getOrderId}`}>#{getOrderId}</Link> se
             ha completado con éxito!
           </h1>
-          <Button link path={`/order/${getOrderId}`} primary wmax>
+          <Button link path={`/order/${getOrderId}`} filled wmax>
             Ver detalles de la compra
           </Button>
           <p>
             Gracias por su compra. Su pedido ha sido procesado y será enviado lo
             antes posible.
           </p>
-          <Button link path={'/'} secondary wmax>
+          <Button link path={'/'} standard wmax>
             Seguir comprando
           </Button>
         </div>

@@ -8,7 +8,7 @@ function NotProducts() {
           Lo sentimos, no hay productos en esta categoría en este momento. Por
           favor, vuelva a comprobarlo pronto.
         </p>
-        <Button link path={'/'} primary wmax>
+        <Button link path={'/'} filled wmax>
           Regresar al inicio
         </Button>
       </div>

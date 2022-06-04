@@ -46,7 +46,7 @@ function ItemCount({ stock, initial, onAdd, onShowCount }) {
           onShowCount();
           onAdd(count);
         }}
-        primary
+        filled
         transparent={stock === 0}
         wfull
         disabled={stock === 0}

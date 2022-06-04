@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 function Button({
-  primary,
-  secondary,
-  border,
+  filled,
+  standard,
+  outlined,
   wfull,
   wmax,
   onClick,
@@ -17,9 +17,9 @@ function Button({
     <button
       type="button"
       onClick={onClick}
-      className={`block w-full px-4 py-2 ${primary && 'bg-black text-white'} ${
-        secondary && 'children-black bg-black/10'
-      } ${border && 'border border-black text-black'} ${wfull && 'w-full'} ${
+      className={`block w-full px-4 py-2 ${filled && 'bg-black text-white'} ${
+        standard && 'children-black bg-black/10'
+      } ${outlined && 'border border-black text-black'} ${wfull && 'w-full'} ${
         wmax && 'w-full md:w-max'
       } ${transparent && 'opacity-20'} ${disabled && 'cursor-not-allowed'}`}
       disabled={disabled}

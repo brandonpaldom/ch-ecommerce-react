@@ -83,17 +83,17 @@ function Cart() {
               <p className="text-[1.5rem] leading-tight">Mis datos</p>
               <FormCart formData={formData} handleChange={handleChange} />
               <div className="mt-4 flex flex-col justify-end gap-4 text-center md:flex-row">
-                <Button onClick={emptyCart} border wmax>
+                <Button onClick={emptyCart} outlined wmax>
                   Vaciar carrito
                 </Button>
-                <Button link path={'/'} secondary wmax>
+                <Button link path={'/'} standard wmax>
                   Seguir comprando
                 </Button>
                 <Button
                   link
                   onClick={createOrder}
                   path={'/successful'}
-                  primary
+                  filled
                   wmax
                   disabled={
                     formData.name === '' ||

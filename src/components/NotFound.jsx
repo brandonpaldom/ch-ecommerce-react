@@ -10,7 +10,7 @@ function NotFound() {
           Lo sentimos, pero la página que busca no existe. Por favor, compruebe
           la URL e inténtelo de nuevo.
         </p>
-        <Button link path={'/'} primary wmax>
+        <Button link path={'/'} filled wmax>
           Regresar al inicio
         </Button>
       </div>

@@ -91,16 +91,16 @@ function ItemDetail({ item }) {
               <Button
                 link
                 path="/cart"
-                secondary
+                standard
                 wfull
-                onClick={(event) => {
+                onClick={() => {
                   setAlmostOutOfStock(false);
                   setOverstock(false);
                 }}
               >
                 Ir al carrito
               </Button>
-              <Button link path="/" border wfull>
+              <Button link path="/" outlined wfull>
                 Seguir comprando
               </Button>
             </div>
