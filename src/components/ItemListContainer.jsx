@@ -33,8 +33,23 @@ function ItemListContainer() {
       .finally(() => setLoading(false));
   }, [categoryId]);
 
+  const translateCategory = (categoryId) => {
+    switch (categoryId) {
+      case 'woman':
+        return 'Mujer';
+      case 'man':
+        return 'Hombre';
+      case 'beauty':
+        return 'Belleza';
+      default:
+    }
+  };
+
   return (
     <div className="p-6">
+      {categoryId && (
+        <h1 className="mb-4 text-[1.5rem]">{translateCategory(categoryId)}</h1>
+      )}
       <ItemList items={products} loading={loading} />
       {products.length === 0 && <NotProducts />}
     </div>

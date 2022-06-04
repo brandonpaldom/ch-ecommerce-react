@@ -12,6 +12,10 @@ function Navbar() {
     setShow(!show);
   };
 
+  const handleClose = () => {
+    setShow(false);
+  };
+
   const options = [
     {
       path: '/',
@@ -43,7 +47,12 @@ function Navbar() {
           </Link>
           <div className="hidden items-center gap-4 sm:flex">
             {options.map(({ text, path }, index) => (
-              <NavbarItem key={index} path={path} text={text} />
+              <NavbarItem
+                key={index}
+                path={path}
+                text={text}
+                handleClose={handleClose}
+              />
             ))}
           </div>
           <Link to="/cart">
@@ -56,7 +65,12 @@ function Navbar() {
         <div className="absolute z-10 w-1/2 bg-blue-100 p-6 sm:hidden">
           <div className="flex flex-col gap-4">
             {options.map(({ text, path }, index) => (
-              <NavbarItem key={index} path={path} text={text} />
+              <NavbarItem
+                key={index}
+                path={path}
+                text={text}
+                handleClose={handleClose}
+              />
             ))}
           </div>
         </div>

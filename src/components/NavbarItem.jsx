@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-function NavbarItem({ path, text }) {
+function NavbarItem({ path, text, handleClose }) {
   return (
-    <Link to={path} className="hover:underline">
+    <Link to={path} onClick={handleClose} className="hover:underline">
       {text}
     </Link>
   );
