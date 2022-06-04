@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCartContext } from '../context/CartContext';
 import Button from './Button';
 import ItemCount from './ItemCount';
@@ -33,6 +33,11 @@ function ItemDetail({ item }) {
     setViewColor(variations[index].color);
     setIsActive(index);
   }
+
+  useEffect(() => {
+    setOverstock(false);
+    console.log('setOverstock(false)');
+  }, [setOverstock]);
 
   return (
     <div key={id} className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
