@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import Button from './Button';
 import ItemCount from './ItemCount';
@@ -88,21 +89,23 @@ function ItemDetail({ item }) {
           )}
           {hideCount === 'show' && (
             <div className="flex w-full flex-col gap-4 text-center md:w-[320px]">
-              <Button
-                link
-                path="/cart"
-                standard
-                wfull
-                onClick={() => {
-                  setAlmostOutOfStock(false);
-                  setOverstock(false);
-                }}
-              >
-                Ir al carrito
-              </Button>
-              <Button link path="/" outlined wfull>
-                Seguir comprando
-              </Button>
+              <Link to="/cart">
+                <Button
+                  standard
+                  wfull
+                  onClick={() => {
+                    setAlmostOutOfStock(false);
+                    setOverstock(false);
+                  }}
+                >
+                  Ir al carrito
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button outlined wfull>
+                  Seguir comprando
+                </Button>
+              </Link>
             </div>
           )}
         </div>
