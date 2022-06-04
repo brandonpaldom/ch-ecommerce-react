@@ -37,7 +37,6 @@ function ItemDetail({ item }) {
 
   useEffect(() => {
     setOverstock(false);
-    console.log('setOverstock(false)');
   }, [setOverstock]);
 
   return (
