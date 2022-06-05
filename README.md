@@ -47,7 +47,7 @@ http://localhost:3000
 
 Página de inicio
 
-![](https://res.cloudinary.com/dlomynswh/image/upload/v1654222626/ch-ecommerce/readme/Captura_de_Pantalla_2022-06-02_a_la_s_21.13.07_c9qld3.png)
+![](https://res.cloudinary.com/dlomynswh/image/upload/v1654460593/ch-ecommerce/readme/Captura_de_Pantalla_2022-06-05_a_la_s_15.22.11_n6k4ke.png)
 
 Página de categorías
 
