@@ -46,7 +46,7 @@ function Cart() {
         viewColor: viewColor,
         quantity: quantityToAdd,
       })),
-      date: new Date(2020, 6, 6),
+      date: new Date(),
       total: subTotal >= 999 ? subTotal : subTotal + 99,
     };
 
