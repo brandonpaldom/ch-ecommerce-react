@@ -55,12 +55,9 @@ function Cart() {
     addDoc(q, order)
       .then((resp) => {
         setGetOrderId(resp.id);
-        console.log('ID de pedido', resp.id);
       })
       .catch((err) => console.log(err))
       .finally(() => emptyCart());
-
-    console.log('Pedido', order);
   }
 
   return (
