@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Banner from './components/Banner';
 import Cart from './components/Cart';
+import Footer from './components/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/order/:orderId" element={<Order />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </CartContextProvider>
   );
 }
