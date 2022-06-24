@@ -3,7 +3,7 @@ import Button from './Button';
 
 function NotFound() {
   return (
-    <div className="-mt-16 -mb-12 grid h-screen w-full grid-cols-1 place-content-center p-6">
+    <div className="-my-16 grid h-screen w-full grid-cols-1 place-content-center p-6">
       <div className="flex flex-col items-center gap-4">
         <img src={ExclamationIcon} alt="" width={24} />
         <p className="text-center text-neutral-500">
