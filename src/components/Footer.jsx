@@ -1,26 +1,28 @@
 function Footer() {
   return (
-    <footer className="flex h-16 items-center justify-start gap-4 bg-neutral-100 px-6 text-[0.875rem] text-neutral-500">
-      <p>Magnolia</p>
+    <footer className="flex h-20 flex-col items-center justify-center gap-2 bg-neutral-100 text-[0.875rem] text-neutral-500 md:flex-row md:gap-4">
       <p>
-        Construido con{' '}
+        Creado por{' '}
         <a
-          href="https://reactjs.org/"
-          className="underline"
+          href="https://brandonpalmeros.me/"
+          className="text-black hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          React
+          Brandon Palmeros
         </a>
       </p>
-      <a
-        href="https://github.com/brandonpaldom/ch-ecommerce"
-        className="underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ver en GitHub
-      </a>
+      <p>
+        Ver en{' '}
+        <a
+          href="https://github.com/brandonpaldom/ch-ecommerce/"
+          className="text-black hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </p>
     </footer>
   );
 }
