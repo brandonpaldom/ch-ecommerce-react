@@ -40,7 +40,10 @@ function ItemDetail({ item }) {
   }, [setOverstock]);
 
   return (
-    <div key={id} className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
+    <div
+      key={id}
+      className="animate__animated animate__fadeIn mx-auto flex max-w-[1024px] flex-col gap-4 p-6"
+    >
       <div className="grid grid-cols-1 sm:grid-cols-2">
         <div className="relative">
           <img src={color} alt="" />
@@ -68,7 +71,7 @@ function ItemDetail({ item }) {
                 alt=""
                 className={`${
                   isActive === index && 'outline outline-1'
-                } aspect-square w-20 cursor-pointer object-cover hover:opacity-90`}
+                } aspect-square w-20 cursor-pointer object-cover transition-opacity hover:opacity-90`}
               />
             ))}
           </div>

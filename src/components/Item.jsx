@@ -7,7 +7,13 @@ function Item({ id, title, price, newArticle, variations }) {
   return (
     <Link to={`/item/${id}`}>
       <div className="relative">
-        {img && <img src={img} alt="" className="mb-2 hover:opacity-90" />}
+        {img && (
+          <img
+            src={img}
+            alt=""
+            className="mb-2 transition-opacity hover:opacity-90"
+          />
+        )}
         {newArticle && (
           <span className="absolute top-2 left-2 bg-black/10 p-1 text-xs leading-none">
             Nuevo
