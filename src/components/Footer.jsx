@@ -4,23 +4,10 @@ function Footer() {
       <p>
         Creado por{' '}
         <a
-          href="https://brandonpalmeros.me/"
+          href="https://brandonpalmeros.dev/"
           className="text-black hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           Brandon Palmeros
-        </a>
-      </p>
-      <p>
-        Ver en{' '}
-        <a
-          href="https://github.com/brandonpaldom/ch-ecommerce/"
-          className="text-black hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
         </a>
       </p>
     </footer>
