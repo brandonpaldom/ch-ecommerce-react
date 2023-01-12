@@ -28,19 +28,19 @@ Magnolia es un ecommerce creado como proyecto del Curso de React JS de Coderhous
 El primer paso es clonar este proyecto en tu computadora, instalar las dependencias y empezar a trabajar.
 
 ```bash
-git clone git@github.com:brandonpaldom/ch-ecommerce.git
+git clone git@github.com:brandonpaldom/ch-ecommerce-react.git
 
-cd ch-ecommerce
+cd ch-ecommerce-react
 
 npm install
 
-npm start
+npm run dev
 ```
 
 Para ver el proyecto en el navegador, abrir la URL:
 
 ```bash
-http://localhost:3000
+http://localhost:5173 // El puerto puede cambiar, revisa el log del proyecto en tu terminal
 ```
 
 ## Características:
