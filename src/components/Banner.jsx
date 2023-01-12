@@ -1,4 +1,4 @@
-import { ReactComponent as CrossIcon } from '../assets/icons/cross.svg';
+import CrossCartIcon from '../assets/icons/cross.svg';
 
 function Banner({ text, handleCloseBanner }) {
   return (
@@ -8,7 +8,7 @@ function Banner({ text, handleCloseBanner }) {
         onClick={handleCloseBanner}
         className="absolute right-0 flex h-9 w-9 cursor-pointer items-center justify-center bg-black hover:bg-neutral-900"
       >
-        <CrossIcon className="h-2 w-2 cursor-pointer fill-white" />
+        <img src={CrossCartIcon} alt="" width={8} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as InfoIcon } from '../assets/icons/info.svg';
+import InfoIcon from '../assets/icons/info.svg';
 import { useCartContext } from '../context/CartContext';
 import Button from './Button';
 import SuccessfulLoader from './SuccessfulLoader';
@@ -11,7 +11,7 @@ function Successful() {
     <div className="mx-auto grid max-w-[1024px] grid-cols-1 p-6 sm:grid-cols-2">
       {getOrderId ? (
         <div className="flex flex-col items-center justify-center gap-4 bg-white p-6 text-center">
-          <InfoIcon className="h-8 w-8 animate-bounce fill-green-600" />
+          <img src={InfoIcon} alt="" width={32} />
           <h1 className="text-[1.5rem] leading-tight">
             ¡Su compra <Link to={`/order/${getOrderId}`}>#{getOrderId}</Link> se
             ha completado con éxito!
