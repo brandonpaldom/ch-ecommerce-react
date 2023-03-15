@@ -1,8 +1,9 @@
+import { useContext } from 'react'
 import ShoppingCartIcon from '../assets/icons/shopping-cart.svg'
-import { useCartContext } from '../context/CartContext'
+import CartContext from '../context/CartContext'
 
 function CartWidget() {
-  const { cartList } = useCartContext()
+  const { cartList } = useContext(CartContext)
 
   const products = cartList
     .map(({ quantityToAdd }) => quantityToAdd)

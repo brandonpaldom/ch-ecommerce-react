@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../context/CartContext'
+import CartContext from '../context/CartContext'
 import Button from './Button'
 import ItemCount from './ItemCount'
 import Shipping from './Shipping'
@@ -19,7 +19,7 @@ function ItemDetail({ item }) {
     overstock,
     setOverstock,
     addToCart,
-  } = useCartContext()
+  } = useContext(CartContext)
 
   function onAdd(quantityToAdd) {
     addToCart({ item, quantityToAdd, color, viewColor })

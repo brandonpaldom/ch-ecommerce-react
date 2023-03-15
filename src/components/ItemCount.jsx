@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MinusIcon from '../assets/icons/minus-small.svg'
 import PlusIcon from '../assets/icons/plus-small.svg'
-import { useCartContext } from '../context/CartContext'
+import CartContext from '../context/CartContext'
 import Button from './Button'
 
 function ItemCount({ stock, initial, onAdd, onShowCount }) {
   const [count, setCount] = useState(initial)
 
-  const { isInCart } = useCartContext()
+  const { isInCart } = useContext(CartContext)
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-[320px]">

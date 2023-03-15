@@ -9,7 +9,7 @@ import Navbar from './components/Navbar'
 import NotFound from './components/NotFound'
 import Order from './components/Order'
 import Successful from './components/Successful'
-import CartContextProvider from './context/CartContext'
+import CartProvider from './context/CartProvider'
 import getFirestoreApp from './firebase/config'
 
 getFirestoreApp()
@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <CartContextProvider>
+    <CartProvider>
       {showBanner && (
         <Banner
           text="Envíos sin costo en compras mayores a $999"
@@ -41,7 +41,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </CartContextProvider>
+    </CartProvider>
   )
 }
 

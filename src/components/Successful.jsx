@@ -1,11 +1,12 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import InfoIcon from '../assets/icons/info.svg'
-import { useCartContext } from '../context/CartContext'
+import CartContext from '../context/CartContext'
 import Button from './Button'
 import SuccessfulLoader from './SuccessfulLoader'
 
 function Successful() {
-  const { getOrderId } = useCartContext()
+  const { getOrderId } = useContext(CartContext)
 
   return (
     <div className="mx-auto grid max-w-[1024px] grid-cols-1 p-6 sm:grid-cols-2">

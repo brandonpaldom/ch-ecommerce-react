@@ -1,7 +1,7 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../context/CartContext'
+import CartContext from '../context/CartContext'
 import Button from './Button'
 import CartItem from './CartItem'
 import EmptyCart from './EmptyCart'
@@ -11,7 +11,7 @@ import ShippingInfo from './ShippingInfo'
 
 function Cart() {
   const { cartList, removeFromCart, emptyCart, setGetOrderId } =
-    useCartContext()
+    useContext(CartContext)
 
   const [formData, setFormData] = useState({
     name: '',
