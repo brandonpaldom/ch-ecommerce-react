@@ -1,21 +1,21 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react'
 
-const CartContext = createContext([]);
+const CartContext = createContext([])
 
-export const useCartContext = () => useContext(CartContext);
+export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState(
     JSON.parse(localStorage.getItem('cartList')) || []
-  );
+  )
 
-  const [almostOutOfStock, setAlmostOutOfStock] = useState(false);
-  const [overstock, setOverstock] = useState(false);
-  const [getOrderId, setGetOrderId] = useState(null);
+  const [almostOutOfStock, setAlmostOutOfStock] = useState(false)
+  const [overstock, setOverstock] = useState(false)
+  const [getOrderId, setGetOrderId] = useState(null)
 
   const addToCart = (product) => {
-    const isInCart = cartList.find((item) => item.item.id === product.item.id);
-    const colorExist = cartList.find((item) => item.color === product.color);
+    const isInCart = cartList.find((item) => item.item.id === product.item.id)
+    const colorExist = cartList.find((item) => item.color === product.color)
 
     if (isInCart) {
       if (colorExist) {
@@ -25,51 +25,51 @@ const CartContextProvider = ({ children }) => {
             cartItem.color === product.color
           ) {
             if (cartItem.quantityToAdd === product.item.stock) {
-              setOverstock(true);
+              setOverstock(true)
             } else if (
               cartItem.quantityToAdd + product.quantityToAdd >
               product.item.stock
             ) {
-              setAlmostOutOfStock(true);
+              setAlmostOutOfStock(true)
             } else {
-              cartItem.quantityToAdd += product.quantityToAdd;
-              setAlmostOutOfStock(false);
+              cartItem.quantityToAdd += product.quantityToAdd
+              setAlmostOutOfStock(false)
             }
           }
 
-          return cartItem;
-        });
+          return cartItem
+        })
 
-        setCartList(newCartList);
-        localStorage.setItem('cartList', JSON.stringify(newCartList));
+        setCartList(newCartList)
+        localStorage.setItem('cartList', JSON.stringify(newCartList))
       } else {
-        const newCartList = [...cartList, product];
-        setCartList(newCartList);
-        localStorage.setItem('cartList', JSON.stringify(newCartList));
-        setAlmostOutOfStock(false);
+        const newCartList = [...cartList, product]
+        setCartList(newCartList)
+        localStorage.setItem('cartList', JSON.stringify(newCartList))
+        setAlmostOutOfStock(false)
       }
     } else {
-      const newCartList = [...cartList, product];
-      setCartList(newCartList);
-      localStorage.setItem('cartList', JSON.stringify(newCartList));
-      setAlmostOutOfStock(false);
+      const newCartList = [...cartList, product]
+      setCartList(newCartList)
+      localStorage.setItem('cartList', JSON.stringify(newCartList))
+      setAlmostOutOfStock(false)
     }
-  };
+  }
 
   const removeFromCart = (index) => {
-    const newCartList = [...cartList];
+    const newCartList = [...cartList]
 
-    newCartList.splice(index, 1);
-    setCartList(newCartList);
-    localStorage.setItem('cartList', JSON.stringify(newCartList));
-    setOverstock(false);
-  };
+    newCartList.splice(index, 1)
+    setCartList(newCartList)
+    localStorage.setItem('cartList', JSON.stringify(newCartList))
+    setOverstock(false)
+  }
 
   const emptyCart = () => {
-    setCartList([]);
-    localStorage.setItem('cartList', JSON.stringify([]));
-    setOverstock(false);
-  };
+    setCartList([])
+    localStorage.setItem('cartList', JSON.stringify([]))
+    setOverstock(false)
+  }
 
   return (
     <CartContext.Provider
@@ -88,7 +88,7 @@ const CartContextProvider = ({ children }) => {
     >
       {children}
     </CartContext.Provider>
-  );
-};
+  )
+}
 
-export default CartContextProvider;
+export default CartContextProvider

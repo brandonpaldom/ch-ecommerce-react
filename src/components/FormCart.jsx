@@ -1,4 +1,4 @@
-import InputFormCart from './InputFormCart';
+import InputFormCart from './InputFormCart'
 
 function FormCart({ formData, handleChange }) {
   return (
@@ -27,7 +27,7 @@ function FormCart({ formData, handleChange }) {
         />
       </form>
     </>
-  );
+  )
 }
 
-export default FormCart;
+export default FormCart

@@ -1,5 +1,5 @@
-import ExclamationIcon from '../assets/icons/exclamation.svg';
-import Button from './Button';
+import ExclamationIcon from '../assets/icons/exclamation.svg'
+import Button from './Button'
 
 function NotFound() {
   return (
@@ -15,7 +15,7 @@ function NotFound() {
         </Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default NotFound;
+export default NotFound

@@ -1,7 +1,7 @@
-import BoxIcon from '../assets/icons/box.svg';
-import InfoIcon from '../assets/icons/info.svg';
-import PhoneIcon from '../assets/icons/phone.svg';
-import TruckIcon from '../assets/icons/truck.svg';
+import BoxIcon from '../assets/icons/box.svg'
+import InfoIcon from '../assets/icons/info.svg'
+import PhoneIcon from '../assets/icons/phone.svg'
+import TruckIcon from '../assets/icons/truck.svg'
 
 function Shipping() {
   const features = [
@@ -22,7 +22,7 @@ function Shipping() {
       icon: PhoneIcon,
       title: '¿Dudas o aclaraciones? Comunícate con nosotros.',
     },
-  ];
+  ]
 
   const disclaimers = [
     {
@@ -33,7 +33,7 @@ function Shipping() {
       title:
         '** El vendedor no es responsable de los gastos de envío de la devolución. El comprador es responsable de que la devolución llegue dentro del plazo establecido. El vendedor no se hace responsable de los daños que puedan producirse durante el envío de la devolución.',
     },
-  ];
+  ]
 
   return (
     <>
@@ -51,7 +51,7 @@ function Shipping() {
         ))}
       </div>
     </>
-  );
+  )
 }
 
-export default Shipping;
+export default Shipping

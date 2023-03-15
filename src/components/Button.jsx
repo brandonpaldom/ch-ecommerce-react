@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 function Button({
   filled,
@@ -37,7 +37,7 @@ function Button({
         children
       )}
     </button>
-  );
+  )
 }
 
-export default Button;
+export default Button

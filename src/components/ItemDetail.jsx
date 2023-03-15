@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useCartContext } from '../context/CartContext';
-import Button from './Button';
-import ItemCount from './ItemCount';
-import Shipping from './Shipping';
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useCartContext } from '../context/CartContext'
+import Button from './Button'
+import ItemCount from './ItemCount'
+import Shipping from './Shipping'
 
 function ItemDetail({ item }) {
-  const { id, title, description, price, newArticle, stock, variations } = item;
+  const { id, title, description, price, newArticle, stock, variations } = item
 
-  const [hideCount, setHideCount] = useState('hide');
-  const [color, setColor] = useState(variations[0].img);
-  const [viewColor, setViewColor] = useState(variations[0].color);
-  const [isActive, setIsActive] = useState(0);
+  const [hideCount, setHideCount] = useState('hide')
+  const [color, setColor] = useState(variations[0].img)
+  const [viewColor, setViewColor] = useState(variations[0].color)
+  const [isActive, setIsActive] = useState(0)
 
   const {
     almostOutOfStock,
@@ -19,25 +19,25 @@ function ItemDetail({ item }) {
     overstock,
     setOverstock,
     addToCart,
-  } = useCartContext();
+  } = useCartContext()
 
   function onAdd(quantityToAdd) {
-    addToCart({ item, quantityToAdd, color, viewColor });
+    addToCart({ item, quantityToAdd, color, viewColor })
   }
 
   function onShowCount() {
-    setHideCount('show');
+    setHideCount('show')
   }
 
   function selectColor(index) {
-    setColor(variations[index].img);
-    setViewColor(variations[index].color);
-    setIsActive(index);
+    setColor(variations[index].img)
+    setViewColor(variations[index].color)
+    setIsActive(index)
   }
 
   useEffect(() => {
-    setOverstock(false);
-  }, [setOverstock]);
+    setOverstock(false)
+  }, [setOverstock])
 
   return (
     <div
@@ -63,9 +63,9 @@ function ItemDetail({ item }) {
               <img
                 key={index}
                 onClick={() => {
-                  selectColor(index);
-                  setAlmostOutOfStock(false);
-                  setOverstock(false);
+                  selectColor(index)
+                  setAlmostOutOfStock(false)
+                  setOverstock(false)
                 }}
                 src={img}
                 alt=""
@@ -101,8 +101,8 @@ function ItemDetail({ item }) {
                   standard
                   wfull
                   onClick={() => {
-                    setAlmostOutOfStock(false);
-                    setOverstock(false);
+                    setAlmostOutOfStock(false)
+                    setOverstock(false)
                   }}
                 >
                   Ir al carrito
@@ -119,7 +119,7 @@ function ItemDetail({ item }) {
       </div>
       <Shipping />
     </div>
-  );
+  )
 }
 
-export default ItemDetail;
+export default ItemDetail

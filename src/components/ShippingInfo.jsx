@@ -1,7 +1,7 @@
 function ShippingInfo({ shipping }) {
-  const today = new Date();
-  const thirdDay = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000);
-  const day = thirdDay.toLocaleString('default', { weekday: 'long' });
+  const today = new Date()
+  const thirdDay = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000)
+  const day = thirdDay.toLocaleString('default', { weekday: 'long' })
 
   return (
     <div className="flex h-max w-full flex-col gap-4 bg-white p-6 md:w-1/3">
@@ -33,7 +33,7 @@ function ShippingInfo({ shipping }) {
         <p className="text-neutral-500">Llega el {day} antes de las 8:00 pm</p>
       </div>
     </div>
-  );
+  )
 }
 
-export default ShippingInfo;
+export default ShippingInfo

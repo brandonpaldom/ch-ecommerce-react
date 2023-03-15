@@ -1,8 +1,8 @@
-import { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { memo } from 'react'
+import { Link } from 'react-router-dom'
 
 function Item({ id, title, price, newArticle, variations }) {
-  const { img } = variations[0];
+  const { img } = variations[0]
 
   return (
     <Link to={`/item/${id}`}>
@@ -25,7 +25,7 @@ function Item({ id, title, price, newArticle, variations }) {
       </div>
       <div>${price}</div>
     </Link>
-  );
+  )
 }
 
-export default memo(Item);
+export default memo(Item)

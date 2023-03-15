@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
-import InfoIcon from '../assets/icons/info.svg';
-import { useCartContext } from '../context/CartContext';
-import Button from './Button';
-import SuccessfulLoader from './SuccessfulLoader';
+import { Link } from 'react-router-dom'
+import InfoIcon from '../assets/icons/info.svg'
+import { useCartContext } from '../context/CartContext'
+import Button from './Button'
+import SuccessfulLoader from './SuccessfulLoader'
 
 function Successful() {
-  const { getOrderId } = useCartContext();
+  const { getOrderId } = useCartContext()
 
   return (
     <div className="mx-auto grid max-w-[1024px] grid-cols-1 p-6 sm:grid-cols-2">
@@ -37,7 +37,7 @@ function Successful() {
         />
       </div>
     </div>
-  );
+  )
 }
 
-export default Successful;
+export default Successful

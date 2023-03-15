@@ -16,7 +16,7 @@ function CartItem({
           <p className="leading-tight">{item.title}</p>
           <p className="leading-tight">${item.price * quantityToAdd}</p>
         </div>
-        <p className="mb-2 w-full text-[0.875rem] text-neutral-500 line-clamp-2 sm:w-2/3">
+        <p className="line-clamp-2 mb-2 w-full text-[0.875rem] text-neutral-500 sm:w-2/3">
           {item.description}
         </p>
         <p className="text-neutral-500">
@@ -31,7 +31,7 @@ function CartItem({
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default CartItem;
+export default CartItem

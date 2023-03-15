@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import MenuIcon from '../assets/icons/menu-burger.svg';
-import Logo from '../assets/magnolia.svg';
-import CartWidget from './CartWidget';
-import NavbarItem from './NavbarItem';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import MenuIcon from '../assets/icons/menu-burger.svg'
+import Logo from '../assets/magnolia.svg'
+import CartWidget from './CartWidget'
+import NavbarItem from './NavbarItem'
 
 function Navbar() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
   const handleToggle = () => {
-    setShow(!show);
-  };
+    setShow(!show)
+  }
 
   const handleClose = () => {
-    setShow(false);
-  };
+    setShow(false)
+  }
 
   const options = [
     {
@@ -33,7 +33,7 @@ function Navbar() {
       path: '/category/beauty',
       text: 'Belleza',
     },
-  ];
+  ]
 
   return (
     <>
@@ -76,7 +76,7 @@ function Navbar() {
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

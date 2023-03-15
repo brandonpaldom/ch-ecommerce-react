@@ -9,7 +9,7 @@ function OrderItem({ color, viewColor, title, price, quantity, description }) {
           <p className="leading-tight">{title}</p>
           <p className="leading-tight">${price * quantity}</p>
         </div>
-        <p className="mb-2 w-full text-[0.875rem] text-neutral-500 line-clamp-2 sm:w-2/3">
+        <p className="line-clamp-2 mb-2 w-full text-[0.875rem] text-neutral-500 sm:w-2/3">
           {description}
         </p>
         <p className="text-neutral-500">
@@ -17,7 +17,7 @@ function OrderItem({ color, viewColor, title, price, quantity, description }) {
         </p>
       </div>
     </div>
-  );
+  )
 }
 
-export default OrderItem;
+export default OrderItem

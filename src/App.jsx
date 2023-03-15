@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Banner from './components/Banner';
-import Cart from './components/Cart';
-import Footer from './components/Footer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
-import Navbar from './components/Navbar';
-import NotFound from './components/NotFound';
-import Order from './components/Order';
-import Successful from './components/Successful';
-import CartContextProvider from './context/CartContext';
-import getFirestoreApp from './firebase/config';
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Banner from './components/Banner'
+import Cart from './components/Cart'
+import Footer from './components/Footer'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import ItemListContainer from './components/ItemListContainer'
+import Navbar from './components/Navbar'
+import NotFound from './components/NotFound'
+import Order from './components/Order'
+import Successful from './components/Successful'
+import CartContextProvider from './context/CartContext'
+import getFirestoreApp from './firebase/config'
 
-getFirestoreApp();
+getFirestoreApp()
 
 function App() {
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(true)
 
   const handleCloseBanner = () => {
-    setShowBanner(false);
-  };
+    setShowBanner(false)
+  }
 
   return (
     <CartContextProvider>
@@ -42,7 +42,7 @@ function App() {
       </Routes>
       <Footer />
     </CartContextProvider>
-  );
+  )
 }
 
-export default App;
+export default App

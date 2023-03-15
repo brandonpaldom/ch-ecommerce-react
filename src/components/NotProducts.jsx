@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './Button'
 
 function NotProducts() {
   return (
@@ -13,7 +13,7 @@ function NotProducts() {
         </Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default NotProducts;
+export default NotProducts

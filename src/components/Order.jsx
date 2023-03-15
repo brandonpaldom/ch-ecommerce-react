@@ -1,27 +1,27 @@
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Button from './Button';
-import OrderItem from './OrderItem';
-import OrderLoader from './OrderLoader';
-import Shipping from './Shipping';
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import Button from './Button'
+import OrderItem from './OrderItem'
+import OrderLoader from './OrderLoader'
+import Shipping from './Shipping'
 
 function Order() {
-  const { orderId } = useParams();
-  const [order, setOrder] = useState({});
-  const [loading, setLoading] = useState(true);
+  const { orderId } = useParams()
+  const [order, setOrder] = useState({})
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const db = getFirestore();
-    const itemCollection = doc(db, 'orders', orderId);
+    const db = getFirestore()
+    const itemCollection = doc(db, 'orders', orderId)
 
     getDoc(itemCollection)
       .then((resp) => setOrder({ id: resp.id, ...resp.data() }))
       .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, [orderId]);
+      .finally(() => setLoading(false))
+  }, [orderId])
 
-  const { id, items, total } = order;
+  const { id, items, total } = order
 
   return (
     <div className="mx-auto flex max-w-[1024px] flex-col gap-4 p-6">
@@ -55,7 +55,7 @@ function Order() {
       )}
       <Shipping />
     </div>
-  );
+  )
 }
 
-export default Order;
+export default Order

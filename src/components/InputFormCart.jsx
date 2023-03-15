@@ -10,7 +10,7 @@ function InputFormCart({ label, type, nameValue, value, onChange }) {
         onChange={onChange}
       />
     </label>
-  );
+  )
 }
 
-export default InputFormCart;
+export default InputFormCart

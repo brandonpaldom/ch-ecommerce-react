@@ -10,7 +10,7 @@ function SuccessfulLoader() {
       <div className="mt-4 h-10 w-full rounded bg-neutral-200 md:w-[320px]" />
       <div className="h-10 w-full rounded bg-neutral-200 md:w-[240px]" />
     </div>
-  );
+  )
 }
 
-export default SuccessfulLoader;
+export default SuccessfulLoader

@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import MinusIcon from '../assets/icons/minus-small.svg';
-import PlusIcon from '../assets/icons/plus-small.svg';
-import { useCartContext } from '../context/CartContext';
-import Button from './Button';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import MinusIcon from '../assets/icons/minus-small.svg'
+import PlusIcon from '../assets/icons/plus-small.svg'
+import { useCartContext } from '../context/CartContext'
+import Button from './Button'
 
 function ItemCount({ stock, initial, onAdd, onShowCount }) {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useState(initial)
 
-  const { isInCart } = useCartContext();
+  const { isInCart } = useCartContext()
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-[320px]">
@@ -43,8 +43,8 @@ function ItemCount({ stock, initial, onAdd, onShowCount }) {
       </div>
       <Button
         onClick={() => {
-          onShowCount();
-          onAdd(count);
+          onShowCount()
+          onAdd(count)
         }}
         filled
         transparent={stock === 0}
@@ -67,7 +67,7 @@ function ItemCount({ stock, initial, onAdd, onShowCount }) {
         </p>
       )}
     </div>
-  );
+  )
 }
 
-export default ItemCount;
+export default ItemCount

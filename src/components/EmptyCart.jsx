@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import ShoppingBagAddIcon from '../assets/icons/shopping-bag-add.svg';
+import { Link } from 'react-router-dom'
+import ShoppingBagAddIcon from '../assets/icons/shopping-bag-add.svg'
 
 function EmptyCart() {
   return (
@@ -14,7 +14,7 @@ function EmptyCart() {
         </Link>
       </div>
     </div>
-  );
+  )
 }
 
-export default EmptyCart;
+export default EmptyCart

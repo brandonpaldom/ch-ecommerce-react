@@ -4,46 +4,46 @@ import {
   getFirestore,
   query,
   where,
-} from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ItemList from './ItemList';
-import NotProducts from './NotProducts';
+} from 'firebase/firestore'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ItemList from './ItemList'
+import NotProducts from './NotProducts'
 
 function ItemListContainer() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const { categoryId } = useParams();
+  const { categoryId } = useParams()
 
   useEffect(() => {
-    setLoading(true);
-    const db = getFirestore();
-    const q = collection(db, 'items');
+    setLoading(true)
+    const db = getFirestore()
+    const q = collection(db, 'items')
 
     const qFilter = categoryId
       ? query(q, where('category', '==', categoryId))
-      : q;
+      : q
 
     getDocs(qFilter)
       .then((resp) => {
-        setProducts(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setProducts(resp.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
       })
       .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
-  }, [categoryId]);
+      .finally(() => setLoading(false))
+  }, [categoryId])
 
   const translateCategory = (categoryId) => {
     switch (categoryId) {
       case 'woman':
-        return 'Mujer';
+        return 'Mujer'
       case 'man':
-        return 'Hombre';
+        return 'Hombre'
       case 'beauty':
-        return 'Belleza';
+        return 'Belleza'
       default:
     }
-  };
+  }
 
   return (
     <div className="p-6">
@@ -53,7 +53,7 @@ function ItemListContainer() {
       <ItemList items={products} loading={loading} />
       {products.length === 0 && <NotProducts />}
     </div>
-  );
+  )
 }
 
-export default ItemListContainer;
+export default ItemListContainer

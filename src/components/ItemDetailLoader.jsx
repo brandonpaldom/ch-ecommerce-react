@@ -1,4 +1,4 @@
-import LogoLoader from '../assets/magnolia-loader.svg';
+import LogoLoader from '../assets/magnolia-loader.svg'
 
 function ItemDetailLoader() {
   return (
@@ -21,7 +21,7 @@ function ItemDetailLoader() {
         <div className="h-10 w-full rounded bg-neutral-200 md:w-[320px]" />
       </div>
     </div>
-  );
+  )
 }
 
-export default ItemDetailLoader;
+export default ItemDetailLoader

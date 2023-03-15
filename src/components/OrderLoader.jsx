@@ -17,7 +17,7 @@ function OrderLoader() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default OrderLoader;
+export default OrderLoader

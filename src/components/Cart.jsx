@@ -1,34 +1,34 @@
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useCartContext } from '../context/CartContext';
-import Button from './Button';
-import CartItem from './CartItem';
-import EmptyCart from './EmptyCart';
-import FormCart from './FormCart';
-import Shipping from './Shipping';
-import ShippingInfo from './ShippingInfo';
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useCartContext } from '../context/CartContext'
+import Button from './Button'
+import CartItem from './CartItem'
+import EmptyCart from './EmptyCart'
+import FormCart from './FormCart'
+import Shipping from './Shipping'
+import ShippingInfo from './ShippingInfo'
 
 function Cart() {
   const { cartList, removeFromCart, emptyCart, setGetOrderId } =
-    useCartContext();
+    useCartContext()
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-  });
+  })
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const subTotal = cartList
     .map(({ item, quantityToAdd }) => quantityToAdd * item.price)
-    .reduce((a, b) => a + b, 0);
+    .reduce((a, b) => a + b, 0)
 
   function createOrder() {
     const order = {
@@ -48,16 +48,16 @@ function Cart() {
       })),
       date: new Date(),
       total: subTotal >= 999 ? subTotal : subTotal + 99,
-    };
+    }
 
-    const db = getFirestore();
-    const q = collection(db, 'orders');
+    const db = getFirestore()
+    const q = collection(db, 'orders')
     addDoc(q, order)
       .then((resp) => {
-        setGetOrderId(resp.id);
+        setGetOrderId(resp.id)
       })
       .catch((err) => console.log(err))
-      .finally(() => emptyCart());
+      .finally(() => emptyCart())
   }
 
   return (
@@ -111,7 +111,7 @@ function Cart() {
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default Cart;
+export default Cart

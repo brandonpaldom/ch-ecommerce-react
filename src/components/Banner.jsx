@@ -1,4 +1,4 @@
-import CrossCartIcon from '../assets/icons/cross.svg';
+import CrossCartIcon from '../assets/icons/cross.svg'
 
 function Banner({ text, handleCloseBanner }) {
   return (
@@ -11,7 +11,7 @@ function Banner({ text, handleCloseBanner }) {
         <img src={CrossCartIcon} alt="" width={8} />
       </div>
     </div>
-  );
+  )
 }
 
-export default Banner;
+export default Banner
