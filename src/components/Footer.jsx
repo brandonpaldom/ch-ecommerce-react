@@ -6,6 +6,8 @@ function Footer() {
         <a
           href="https://brandonpalmeros.dev/"
           className="text-black hover:underline"
+          target="_blank"
+          rel="noopener"
         >
           Brandon Palmeros
         </a>
